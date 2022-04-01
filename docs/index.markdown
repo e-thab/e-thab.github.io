@@ -2,11 +2,11 @@
 # Feel free to add content and custom Front Matter to this file.
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
-layout: home
+layout: default
+title: Home
 ---
-## Website Testing
-
-This is content on my github.io page. Hello, you are reading this. Lorem, ipsum, etc.
+# Welcome to my incredible website :^)
+Hello. My name is Ethan. This is my incredible website.
 
 - This is a list on my website
 - This is the second entry in a list on my website
