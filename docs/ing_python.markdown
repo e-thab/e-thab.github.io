@@ -1,5 +1,6 @@
 ---
 layout: default
 title: Python
+permalink: /python/
 ---
-Content for second test.
+Python content TBA.

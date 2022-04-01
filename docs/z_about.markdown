@@ -6,7 +6,7 @@ permalink: /about/
 
 Hello, my name is Ethan. Welcome to my incredible website. :^)
 
-Browse around using the tabs above
+Browse around using the tabs above to check out some of my equally incredible projects.
 
 Originally from Raleigh, I attended 2 years at Wake Tech before moving to Wilmington
 to study film at UNCW.
