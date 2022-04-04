@@ -3,7 +3,8 @@ layout: default
 title: Home
 ---
 # Welcome to my incredible website :^)
-Hello. My name is Ethan. This is my incredible website.
+
+### Hello. My name is Ethan. This is my website.
 
 - This is a list on my website
 - This is the second entry in a list on my website

@@ -33,14 +33,27 @@ to simulate printed product.
 ***
 
 ## Color Replace:
+
+Stuff about color replace.
 ![Color Replace](/assets/color.png)
 
-Stuff about color replace. Dashed lines represent groups.
+- Dashed lines represent groups.
 
 ***
 
 ## Set Size:
 
 Stuff about set size.
+
+![Set Size](/assets/setsize.png)
+
+- Test
+
+***
+
+## Auto Import:
+Auto Import, made with AutoIt
+![Auto Import](/assets/autoimport.png)
+More stuff
 
 ***
