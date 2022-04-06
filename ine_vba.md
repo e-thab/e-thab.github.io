@@ -53,7 +53,9 @@ Stuff about set size.
 
 ## Auto Import:
 Auto Import, made with AutoIt
-![Auto Import](/assets/autoimport.png)
+
+![Auto Import](/assets/autoimport.png){:style="display:block; margin-left:auto; margin-right:auto"}
+
 More stuff
 
 ***
