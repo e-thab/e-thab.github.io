@@ -36,11 +36,11 @@ In the second guess, the second A is also gray, indicating the same thing for A.
 
 In the next guess, F appears in every color. (Except red)
 
+![Pic](/assets/fluff.png){:style="display:block; margin-left:auto; margin-right:auto"}
+
 This tells us that F is in the word exactly twice and gives precise information at every position in our guess.
 The triple-letter guess is risky, but can entirely inform all possibilities for a letter in one guess.  
 Now that's strategic. (Word was 'fifth')
-
-![Pic](/assets/fluff.png){:style="display:block; margin-left:auto; margin-right:auto"}
 
 Reset button clears everything from the current game, tells you what the word was
 if you didn't guess it, and generates a new word.
