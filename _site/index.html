@@ -19,7 +19,8 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Ethan Harris"},"description":"Lorem, ipsum, etc., et al.","headline":"Home","name":"My Incredible Website","url":"http://localhost:4000/"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="My Incredible Website" /></head>
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="My Incredible Website" /></head>
 <body><header class="site-header" role="banner">
 
   <div class="wrapper"><a class="site-title" rel="author" href="/">My Incredible Website</a><nav class="site-nav">
@@ -47,23 +48,13 @@
 </ul>
 
 <p>Here’s some code:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## A Pythagorean triplet is a set of three natural numbers, a &lt; b &lt; c, for which,
-##
-##                      a2 + b2 = c2
-##
-## For example, 32 + 42 = 9 + 16 = 25 = 52.
-##
-## There exists exactly one Pythagorean triplet for which a + b + c = 1000.
-## Find the product abc.
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">is_true</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+	<span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+		<span class="k">return</span> <span class="bp">True</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="k">return</span> <span class="bp">False</span>
 
-for a in range(1, 333+1):
-    for b in range(a+1, 500+1):
-        c = 1000 - (a + b)
-        
-        if a**2 + b**2 == c**2:
-            print(f"{a}^2 + {b}^2 = {c}^2")
-            print(f"{a} + {b} + {c} = 1000")
-            print(f"abc = {a*b*c}")
+<span class="k">print</span><span class="p">(</span><span class="n">is_true</span><span class="p">(</span><span class="bp">True</span><span class="p">))</span>
 </code></pre></div></div>
 
 <p>Thanks for visiting.</p>
