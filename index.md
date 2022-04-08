@@ -20,4 +20,8 @@ def is_true(x):
 print(is_true(True))
 ```
 
+Here's a formula?:
+
+$$f(x) = \int_{-\infty}^\infty \hat f(\xi)\,e^{2 \pi i \xi x} \,d\xi$$
+
 Thanks for visiting.
