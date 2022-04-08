@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Problem 11: Largest Product in a Grid | My Incredible Website</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Problem 11: Largest Product in a Grid" />
+<meta name="author" content="Ethan Harris" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In the 20×20 grid below, four numbers along a diagonal line have been marked in red. 08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00 81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65 52 70 95 23 04 60 11 42 69 24 68 56 01 32 56 71 37 02 36 91 22 31 16 71 51 67 63 89 41 92 36 54 22 40 40 28 66 33 13 80 24 47 32 60 99 03 45 02 44 75 33 53 78 36 84 20 35 17 12 50 32 98 81 28 64 23 67 10 26 38 40 67 59 54 70 66 18 38 64 70 67 26 20 68 02 62 12 20 95 63 94 39 63 08 40 91 66 49 94 21 24 55 58 05 66 73 99 26 97 17 78 78 96 83 14 88 34 89 63 72 21 36 23 09 75 00 76 44 20 45 35 14 00 61 33 97 34 31 33 95 78 17 53 28 22 75 31 67 15 94 03 80 04 62 16 14 09 53 56 92 16 39 05 42 96 35 31 47 55 58 88 24 00 17 54 24 36 29 85 57 86 56 00 48 35 71 89 07 05 44 44 37 44 60 21 58 51 54 17 58 19 80 81 68 05 94 47 69 28 73 92 13 86 52 17 77 04 89 55 40 04 52 08 83 97 35 99 16 07 97 57 32 16 26 26 79 33 27 98 66 88 36 68 87 57 62 20 72 03 46 33 67 46 55 12 32 63 93 53 69 04 42 16 73 38 25 39 11 24 94 72 18 08 46 29 32 40 62 76 36 20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48 The product of these numbers is 26 × 63 × 78 × 14 = 1788696. What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?" />
+<meta property="og:description" content="In the 20×20 grid below, four numbers along a diagonal line have been marked in red. 08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00 81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65 52 70 95 23 04 60 11 42 69 24 68 56 01 32 56 71 37 02 36 91 22 31 16 71 51 67 63 89 41 92 36 54 22 40 40 28 66 33 13 80 24 47 32 60 99 03 45 02 44 75 33 53 78 36 84 20 35 17 12 50 32 98 81 28 64 23 67 10 26 38 40 67 59 54 70 66 18 38 64 70 67 26 20 68 02 62 12 20 95 63 94 39 63 08 40 91 66 49 94 21 24 55 58 05 66 73 99 26 97 17 78 78 96 83 14 88 34 89 63 72 21 36 23 09 75 00 76 44 20 45 35 14 00 61 33 97 34 31 33 95 78 17 53 28 22 75 31 67 15 94 03 80 04 62 16 14 09 53 56 92 16 39 05 42 96 35 31 47 55 58 88 24 00 17 54 24 36 29 85 57 86 56 00 48 35 71 89 07 05 44 44 37 44 60 21 58 51 54 17 58 19 80 81 68 05 94 47 69 28 73 92 13 86 52 17 77 04 89 55 40 04 52 08 83 97 35 99 16 07 97 57 32 16 26 26 79 33 27 98 66 88 36 68 87 57 62 20 72 03 46 33 67 46 55 12 32 63 93 53 69 04 42 16 73 38 25 39 11 24 94 72 18 08 46 29 32 40 62 76 36 20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48 The product of these numbers is 26 × 63 × 78 × 14 = 1788696. What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?" />
+<link rel="canonical" href="http://localhost:4000/2022/03/18/euler-11.html" />
+<meta property="og:url" content="http://localhost:4000/2022/03/18/euler-11.html" />
+<meta property="og:site_name" content="My Incredible Website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-03-18T00:00:04-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Problem 11: Largest Product in a Grid" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ethan Harris"},"dateModified":"2022-03-18T00:00:04-04:00","datePublished":"2022-03-18T00:00:04-04:00","description":"In the 20×20 grid below, four numbers along a diagonal line have been marked in red. 08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00 81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65 52 70 95 23 04 60 11 42 69 24 68 56 01 32 56 71 37 02 36 91 22 31 16 71 51 67 63 89 41 92 36 54 22 40 40 28 66 33 13 80 24 47 32 60 99 03 45 02 44 75 33 53 78 36 84 20 35 17 12 50 32 98 81 28 64 23 67 10 26 38 40 67 59 54 70 66 18 38 64 70 67 26 20 68 02 62 12 20 95 63 94 39 63 08 40 91 66 49 94 21 24 55 58 05 66 73 99 26 97 17 78 78 96 83 14 88 34 89 63 72 21 36 23 09 75 00 76 44 20 45 35 14 00 61 33 97 34 31 33 95 78 17 53 28 22 75 31 67 15 94 03 80 04 62 16 14 09 53 56 92 16 39 05 42 96 35 31 47 55 58 88 24 00 17 54 24 36 29 85 57 86 56 00 48 35 71 89 07 05 44 44 37 44 60 21 58 51 54 17 58 19 80 81 68 05 94 47 69 28 73 92 13 86 52 17 77 04 89 55 40 04 52 08 83 97 35 99 16 07 97 57 32 16 26 26 79 33 27 98 66 88 36 68 87 57 62 20 72 03 46 33 67 46 55 12 32 63 93 53 69 04 42 16 73 38 25 39 11 24 94 72 18 08 46 29 32 40 62 76 36 20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48 The product of these numbers is 26 × 63 × 78 × 14 = 1788696. What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?","headline":"Problem 11: Largest Product in a Grid","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2022/03/18/euler-11.html"},"url":"http://localhost:4000/2022/03/18/euler-11.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="shortcut icon" type="image/png" href="/assets/smile.png"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="My Incredible Website" /><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">My Incredible Website</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/">Home</a><a class="page-link" href="/vba/">VBA</a><a class="page-link" href="/unity/">Unity</a><a class="page-link" href="/python/">Python</a><a class="page-link" href="/euler/">Project Euler</a><a class="page-link" href="/jekyll/">Jekyll</a><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Problem 11: Largest Product in a Grid</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2022-03-18T00:00:04-04:00" itemprop="datePublished">Mar 18, 2022
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>In the 20×20 grid below, four numbers along a diagonal line have been marked in red.</p>
+<p style="text-align:center;font-family:monospace">
+08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08<br />
+49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00<br />
+81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65<br />
+52 70 95 23 04 60 11 42 69 24 68 56 01 32 56 71 37 02 36 91<br />
+22 31 16 71 51 67 63 89 41 92 36 54 22 40 40 28 66 33 13 80<br />
+24 47 32 60 99 03 45 02 44 75 33 53 78 36 84 20 35 17 12 50<br />
+32 98 81 28 64 23 67 10 <span style="color:red"><b>26</b></span> 38 40 67 59 54 70 66 18 38 64 70<br />
+67 26 20 68 02 62 12 20 95 <span style="color:red"><b>63</b></span> 94 39 63 08 40 91 66 49 94 21<br />
+24 55 58 05 66 73 99 26 97 17 <span style="color:red"><b>78</b></span> 78 96 83 14 88 34 89 63 72<br />
+21 36 23 09 75 00 76 44 20 45 35 <span style="color:red"><b>14</b></span> 00 61 33 97 34 31 33 95<br />
+78 17 53 28 22 75 31 67 15 94 03 80 04 62 16 14 09 53 56 92<br />
+16 39 05 42 96 35 31 47 55 58 88 24 00 17 54 24 36 29 85 57<br />
+86 56 00 48 35 71 89 07 05 44 44 37 44 60 21 58 51 54 17 58<br />
+19 80 81 68 05 94 47 69 28 73 92 13 86 52 17 77 04 89 55 40<br />
+04 52 08 83 97 35 99 16 07 97 57 32 16 26 26 79 33 27 98 66<br />
+88 36 68 87 57 62 20 72 03 46 33 67 46 55 12 32 63 93 53 69<br />
+04 42 16 73 38 25 39 11 24 94 72 18 08 46 29 32 40 62 76 36<br />
+20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16<br />
+20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54<br />
+01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48<br /></p>
+<p>The product of these numbers is 26 × 63 × 78 × 14 = 1788696.</p>
+
+<p><strong>What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?</strong>
+<!--more--></p>
+
+<hr />
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Code</span>
+</code></pre></div></div>
+
+<details> 
+  <summary>Click to reveal output</summary>
+
+<figure class="highlight"><pre><code class="language-py" data-lang="py"><span class="n">Output</span></code></pre></figure>
+
+</details>
+
+<hr />
+
+<p><em><a href="https://projecteuler.net/problem=11">See problem 11 on projecteuler.net</a></em></p>
+
+  </div><a class="u-url" href="/2022/03/18/euler-11.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">My Incredible Website</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Ethan Harris</li><li><a class="u-email" href="mailto:noah.ethan.harris@gmail.com">noah.ethan.harris@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/Athen-H"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">Athen-H</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Thank you for visiting. Please remember to like, comment, and subscribe to my website.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

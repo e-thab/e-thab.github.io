@@ -42,6 +42,6 @@ $$A \triangle (B \cap C) = (A \triangle B) \cap (A \triangle C)$$
 
 $$\sum_{n=12}^{\infty} 3_{n-1}$$
 
-$$\bigcup_{n=1}^{7} A_{n}$$
+$$\bigcup^{7}_{n=1} A_n$$
 
 Thanks for visiting.
