@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Home
+usemathjax: true
 ---
 # Welcome to my incredible website :^)
 
@@ -23,5 +24,8 @@ print(is_true(True))
 Here's a formula?:
 
 $$f(x) = \int_{-\infty}^\infty \hat f(\xi)\,e^{2 \pi i \xi x} \,d\xi$$
+
+And one here?:  
+$$E=mc^2$$
 
 Thanks for visiting.
