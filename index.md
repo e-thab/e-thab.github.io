@@ -34,4 +34,14 @@ One more try:
   \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]
 </p>
 
+$$\left\{2, 2\frac{1}{2}, 3\frac{1}{3}, 5\frac{1}{5}, 7\frac{1}{7}\right\}$$
+
+$$\log_{2}(63+1)$$
+
+$$A \triangle (B \cap C) = (A \triangle B) \cap (A \triangle C)$$
+
+$$\sum_{n=12}^{\infty} 3_{n-1}$$
+
+$$\bigcup_{n=1}^{7} A_{n}$$
+
 Thanks for visiting.
