@@ -3,7 +3,7 @@ layout: default
 title: Project Euler
 permalink: /euler/
 ---
-## My progress on [Project Euler](https://projecteuler.net/) problems.  
+## ![euler](/assets/pe.ico){:style="width: 50px;"} My progress on [Project Euler](https://projecteuler.net/) problems.  
 Click on a post to see my solution. Answer output is hidden behind a spoiler.  
 Solutions to problems beyond 100 will not be posted; this is partially to honor site guidelines, but mostly because I don't know any of them. *[My profile](https://projecteuler.net/progress=AthenH)*
 

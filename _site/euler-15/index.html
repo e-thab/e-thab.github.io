@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Problem 15: Lattice Paths | My Incredible Website</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Problem 15: Lattice Paths" />
+<meta name="author" content="Ethan Harris" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down, there are exactly 6 routes to the bottom right corner. How many such routes are there through a 20×20 grid?" />
+<meta property="og:description" content="Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down, there are exactly 6 routes to the bottom right corner. How many such routes are there through a 20×20 grid?" />
+<link rel="canonical" href="http://localhost:4000/euler-15/" />
+<meta property="og:url" content="http://localhost:4000/euler-15/" />
+<meta property="og:site_name" content="My Incredible Website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-04-06T09:26:44-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Problem 15: Lattice Paths" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ethan Harris"},"dateModified":"2022-04-06T09:26:44-04:00","datePublished":"2022-04-06T09:26:44-04:00","description":"Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down, there are exactly 6 routes to the bottom right corner. How many such routes are there through a 20×20 grid?","headline":"Problem 15: Lattice Paths","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/euler-15/"},"url":"http://localhost:4000/euler-15/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="My Incredible Website" /><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">My Incredible Website</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/">Home</a><a class="page-link" href="/vba/">VBA</a><a class="page-link" href="/unity/">Unity</a><a class="page-link" href="/python/">Python</a><a class="page-link" href="/euler/">Project Euler</a><a class="page-link" href="/jekyll/">Jekyll</a><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Problem 15: Lattice Paths</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2022-04-06T09:26:44-04:00" itemprop="datePublished">Apr 6, 2022
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down, there are exactly 6 routes to the bottom right corner.</p>
+
+<p><img src="/assets/latticepaths.png" alt="Lattice Paths" style="display:block; margin-left:auto; margin-right:auto" /></p>
+
+<p><strong>How many such routes are there through a 20×20 grid?</strong>
+<!--more--></p>
+
+<hr />
+<p><br />
+This is a special one, because we don’t need to write any code to solve it!<br />
+<em>(That’s probably true for many of the others but I actually know how to do it for this one)</em></p>
+
+<p>We can utilize properties of combinatorics to find the solution. First, let’s consider a much more
+managable grid to better understand the problem. I’ll use a grid with 2 different dimensions to make things more clear,
+but this works for a rectangular grid of any size or proportion.</p>
+
+<p><img src="/assets/goldstar.png" alt="2x3 Grid" style="display:block; margin-left:auto; margin-right:auto" /></p>
+
+<p>In this 2x3 grid, we know that no matter which path we choose, we <em>must</em> ultimately move right three times
+and down two times to reach the bottom right corner and get that enticing gold star.</p>
+
+<p>At this point, we can convert our moves into a much simpler format for solving: a string!
+The path is always \(2+3=5\) moves long, so the string is 5 characters long. We can use R for a move right and D for a move down.</p>
+
+<p style="text-align:center">
+<b><span style="color:Purple">RRR</span><span style="color:DarkCyan">DD</span></b>
+</p>
+
+<p>If we had our 2 characters, R and D, and we could always choose one or the other to come next, we could describe all the paths we could make with \(2^5=32\).</p>
+
+<p>But we don’t. If we consider that we essentially have 5 characters, 3 R’s and 2 D’s, once we’ve picked one at any point in the sequence, our pool of remaining characters to choose is reduced by 1.
+For that reason, we need to use factorials to describe how many permutations of characters can exist.</p>
+
+<p>Even though there are multiple R’s as well as D’s, for now we can consider them all unique elements.</p>
+
+<p>To get the number of ways you can arrange 5 unique <em>things</em>, it’s simply \(5!=120\).<br />
+<em>(5 factorial, e.g. 5*4*3*2*1)</em></p>
+
+<p><strong>However</strong>, now we have redundancies to account for. \(5!\) alone describes this:</p>
+
+<p style="text-align:center">
+<b><span style="color:Crimson">R1 </span><span style="color:Orange">R2 </span><span style="color:Gold">R3 </span><span style="color:DarkSeaGreen">D4 </span><span style="color:MediumSlateBlue">D5</span></b>
+</p>
+
+<p>Meaning we’re counting that permutation as well as ones like this:</p>
+
+<p style="text-align:center">
+<b><span style="color:Gold">R3 </span><span style="color:Crimson">R1 </span><span style="color:Orange">R2 </span><span style="color:MediumSlateBlue">D5 </span><span style="color:DarkSeaGreen">D4</span></b>
+</p>
+
+<p>But of course, RRRDD is the same sequence regardless. Not all the characters are actually unique.
+We don’t care ‘which’ R goes in which of the first three spots, or which D in the last two.</p>
+
+<p>So the number of redundancies we have is equivalent to the number of ways we can permute all the R’s <strong>AND</strong> all the ways we can permute the D’s. <strong>“And”</strong> here means we need to multiply,
+because <em>all</em> the R redundancies exist for <em>all</em> the D redundancies.</p>
+
+\[3!*2!\]
+
+<p>So now we have our total number of ways to permute 5 things, and all the redundancies we have in this case.
+Remember that we get 5 by adding the dimensions of the grid, 3x2. The hard work is done, now we get to do the math.</p>
+
+\[{(3+2)! \over 3!*2!} = {5! \over 3!*2!}\]
+
+<p>And there’s a fun way to divide factorials that makes things a little easier when doing them by hand.
+Just decompose the factorials and cross out like numbers on either side! (Imagine that the overbar is crossing out the numbers)</p>
+
+\[{5*4*\overline{3*2*1} \over \overline{3*2*1}*2*1} = {5*4 \over 2*1} = {20 \over 2} = 10\]
+
+<p>So there are 10 ways to build a 5-character string with three indentical R’s and 2 identical D’s. That means we have 10 paths that get us from the top left to the bottom right!
+Really, from any corner to its diagonal opposite. To solve this for the 20x20 grid, let’s generalize how we solved the smaller one.</p>
+
+<p>We took the dimensions of the grid, which we can call \(n\) x \(m\), and took the factorial of their sum to get our total possible permutations.</p>
+
+\[(n+m)!\]
+
+<p>We calculated our redundancies by finding the permutations of each set of similar moves, the same two numbers as before, and multiplying them.</p>
+
+\[n!*m!\]
+
+<p>Then we accounted for redundancies by dividing them by our total. Putting it together gives us:</p>
+
+\[{(n+m)!} \over {n!*m!}\]
+
+<p>Now all we need to do is plug in our numbers to get the solution below. And hey, you know what? If you made it this far, you can keep that gold star.</p>
+
+<details> 
+<summary>Click to reveal solution</summary>
+$${(20+20)! \over 20!*20!} = 137,846,528,820$$
+</details>
+
+<hr />
+
+<p><em><a href="https://projecteuler.net/problem=15">See problem 15 on projecteuler.net</a></em></p>
+
+  </div><a class="u-url" href="/euler-15/" hidden></a>
+  
+  <div class="PageNavigation">
+    
+      <a class="prev" href="/euler-14/">&laquo; Problem 14: Longest Collatz Sequence</a>
+    
+    
+      <a class="next" href="/euler-16/">Problem 16: Power Digit Sum &raquo;</a>
+    
+  </div>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">My Incredible Website</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Ethan Harris</li><li><a class="u-email" href="mailto:noah.ethan.harris@gmail.com">noah.ethan.harris@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/Athen-H"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">Athen-H</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Thank you for visiting. Please remember to like, comment, and subscribe to my website.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

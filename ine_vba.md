@@ -4,7 +4,7 @@ title: VBA
 permalink: /vba/
 ---
 
-# VBA GUIs for Use in CorelDRAW
+# ![vba](/assets/vba.svg){:style="width: 75px;"} VBA GUIs for Use in CorelDRAW
 
 ***
 

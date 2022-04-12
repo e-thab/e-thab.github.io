@@ -4,7 +4,7 @@ title: Python
 permalink: /python/
 ---
 
-# Python Projects
+# ![py](/assets/py.svg){:style="width: 50px;"} **Python Projects**
 
 ***
 
@@ -25,21 +25,22 @@ Red letters indicate word not found in dictionary as a brief animation:
 Or a bad final guess:
 ![](/assets/turdle2.png)
 
-Includes logic that allows strategic guessing for maximal information, the same way Wordle does.
+Game includes logic that allows strategic guessing for maximal information, the same way Wordle does.
 
-Note below that in the first guess,
+Note below that in the first guess, ARROW,
 the first R is yellow, but the second is gray, meaning there should be only one 
-R in the word.  
-In the second guess, the second A is also gray, indicating the same thing for A. (The word was 'rainy')
+R in the word.
+
+In the second guess, PAPAL, the second A is also gray, indicating the same thing for A. (The word was 'rainy')
 
 ![Pic](/assets/papal.png){:style="display:block; margin-left:auto; margin-right:auto"}
 
-In the next guess, F appears in every color. (Except red)
+In the next guess, FLUFF, F appears in every color. (Except red)
 
 ![Pic](/assets/fluff.png){:style="display:block; margin-left:auto; margin-right:auto"}
 
 This tells us that F is in the word exactly twice and gives precise information at every position in our guess.
-The triple-letter guess is risky, but can entirely inform all possibilities for a letter in one guess.  
+The triple-letter guess is risky, but can entirely inform all possibilities for a letter in one guess, even for a double letter word.
 Now that's strategic. (Word was 'fifth')
 
 Reset button clears everything from the current game, tells you what the word was
