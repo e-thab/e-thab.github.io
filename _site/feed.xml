@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-12T11:57:44-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">My Incredible Website</title><subtitle>Thank you for visiting. Please remember to like, comment, and subscribe to my website.</subtitle><author><name>Ethan Harris</name></author><entry><title type="html">Problem 21: Amicable Numbers</title><link href="http://localhost:4000/euler-21/" rel="alternate" type="text/html" title="Problem 21: Amicable Numbers" /><published>2022-04-06T09:26:50-04:00</published><updated>2022-04-06T09:26:50-04:00</updated><id>http://localhost:4000/euler-21</id><content type="html" xml:base="http://localhost:4000/euler-21/">&lt;p&gt;Let d(&lt;em&gt;n&lt;/em&gt;) be defined as the sum of proper divisors of &lt;em&gt;n&lt;/em&gt; (numbers less than &lt;em&gt;n&lt;/em&gt; which divide evenly into &lt;em&gt;n&lt;/em&gt;).
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-12T14:29:24-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">My Incredible Website</title><subtitle>Thank you for visiting. Please remember to like, comment, and subscribe to my website.</subtitle><author><name>Ethan Harris</name></author><entry><title type="html">Problem 21: Amicable Numbers</title><link href="http://localhost:4000/euler-21/" rel="alternate" type="text/html" title="Problem 21: Amicable Numbers" /><published>2022-04-05T12:00:00-04:00</published><updated>2022-04-05T12:00:00-04:00</updated><id>http://localhost:4000/euler-21</id><content type="html" xml:base="http://localhost:4000/euler-21/">&lt;p&gt;Let d(&lt;em&gt;n&lt;/em&gt;) be defined as the sum of proper divisors of &lt;em&gt;n&lt;/em&gt; (numbers less than &lt;em&gt;n&lt;/em&gt; which divide evenly into &lt;em&gt;n&lt;/em&gt;).
 If d(&lt;em&gt;a&lt;/em&gt;) = &lt;em&gt;b&lt;/em&gt; and d(&lt;em&gt;b&lt;/em&gt;) = &lt;em&gt;a&lt;/em&gt;, where &lt;em&gt;a&lt;/em&gt; ≠ &lt;em&gt;b&lt;/em&gt;, then &lt;em&gt;a&lt;/em&gt; and &lt;em&gt;b&lt;/em&gt; are an amicable pair and each of &lt;em&gt;a&lt;/em&gt; and &lt;em&gt;b&lt;/em&gt; are called amicable numbers.&lt;/p&gt;
 
 &lt;p&gt;For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110; therefore d(220) = 284. The proper divisors of 284 are 1, 2, 4, 71 and 142; so d(284) = 220.&lt;/p&gt;
@@ -8,19 +8,162 @@ If d(&lt;em&gt;a&lt;/em&gt;) = &lt;em&gt;b&lt;/em&gt; and d(&lt;em&gt;b&lt;/em&g
 
 &lt;hr /&gt;
 
-&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;CODE&lt;/span&gt;
+&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;funcs&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is_prime&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;divisors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# return proper divisors of n
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;L&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;amicable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# pretty slow but it works
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10001&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;amicable&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is_prime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;check&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;divisors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;#print(f&quot;{i}: {sum(divisors(i))}&quot;)
+&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is_prime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;check&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;divisors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;amicable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;amicable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;amicable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;amicable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;details&gt; 
 &lt;summary&gt;Click to reveal output&lt;/summary&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-py&quot; data-lang=&quot;py&quot;&gt;&lt;span class=&quot;n&quot;&gt;OUTPUT&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-py&quot; data-lang=&quot;py&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;220&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;284&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;284&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;220&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1184&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1210&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1210&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1184&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2620&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2924&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2924&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2620&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5020&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5564&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5564&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5020&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6232&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6368&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6368&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6232&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;31626&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;/details&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://projecteuler.net/problem=21&quot;&gt;See problem 21 on projecteuler.net&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ethan Harris</name></author><summary type="html">Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n). If d(a) = b and d(b) = a, where a ≠ b, then a and b are an amicable pair and each of a and b are called amicable numbers. For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110; therefore d(220) = 284. The proper divisors of 284 are 1, 2, 4, 71 and 142; so d(284) = 220. Evaluate the sum of all the amicable numbers under 10000.</summary></entry><entry><title type="html">Problem 67: Maximum Path Sum II</title><link href="http://localhost:4000/euler-67/" rel="alternate" type="text/html" title="Problem 67: Maximum Path Sum II" /><published>2022-04-06T09:26:50-04:00</published><updated>2022-04-06T09:26:50-04:00</updated><id>http://localhost:4000/euler-67</id><content type="html" xml:base="http://localhost:4000/euler-67/">&lt;p&gt;By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://projecteuler.net/problem=21&quot;&gt;See problem 21 on projecteuler.net&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ethan Harris</name></author><summary type="html">Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n). If d(a) = b and d(b) = a, where a ≠ b, then a and b are an amicable pair and each of a and b are called amicable numbers. For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110; therefore d(220) = 284. The proper divisors of 284 are 1, 2, 4, 71 and 142; so d(284) = 220. Evaluate the sum of all the amicable numbers under 10000.</summary></entry><entry><title type="html">Problem 20: Factorial Digit Sum</title><link href="http://localhost:4000/euler-20/" rel="alternate" type="text/html" title="Problem 20: Factorial Digit Sum" /><published>2022-03-28T12:00:00-04:00</published><updated>2022-03-28T12:00:00-04:00</updated><id>http://localhost:4000/euler-20</id><content type="html" xml:base="http://localhost:4000/euler-20/">&lt;p&gt;&lt;em&gt;n&lt;/em&gt;! means &lt;em&gt;n&lt;/em&gt; x (&lt;em&gt;n&lt;/em&gt; - 1) x … x 3 x 2 x 1&lt;/p&gt;
+
+&lt;p&gt;For example, 10! = 10 x 9 x … x 3 x 2 x 1 = 3628800,
+and the sum of the digits in the number 10! is 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Find the sum of the digits in the number 100!&lt;/strong&gt;
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;math&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;factorial&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;digital_sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;Return the sum of the digits in integer n.&quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))])&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;digital_sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;factorial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;details&gt; 
+&lt;summary&gt;Click to reveal output&lt;/summary&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-py&quot; data-lang=&quot;py&quot;&gt;&lt;span class=&quot;mi&quot;&gt;648&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://projecteuler.net/problem=20&quot;&gt;See problem 20 on projecteuler.net&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ethan Harris</name></author><summary type="html">n! means n x (n - 1) x … x 3 x 2 x 1 For example, 10! = 10 x 9 x … x 3 x 2 x 1 = 3628800, and the sum of the digits in the number 10! is 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27. Find the sum of the digits in the number 100!</summary></entry><entry><title type="html">Problem 19: Counting Sundays</title><link href="http://localhost:4000/euler-19/" rel="alternate" type="text/html" title="Problem 19: Counting Sundays" /><published>2022-03-24T12:00:00-04:00</published><updated>2022-03-24T12:00:00-04:00</updated><id>http://localhost:4000/euler-19</id><content type="html" xml:base="http://localhost:4000/euler-19/">&lt;p&gt;You are given the following information, but you may prefer to do some research for yourself.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1 Jan 1900 was a Monday.&lt;/li&gt;
+  &lt;li&gt;Thirty days has September,&lt;br /&gt;
+April, June and November.&lt;br /&gt;
+All the rest have thirty-one,&lt;br /&gt;
+Saving February alone,&lt;br /&gt;
+Which has twenty-eight, rain or shine.&lt;br /&gt;
+And on leap years, twenty-nine.&lt;/li&gt;
+  &lt;li&gt;A leap year occurs on any year evenly divisible by 4, but not on a century unless it is divisible by 400.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?&lt;/strong&gt;
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;weekday&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;Sunday&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;Monday&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;Tuesday&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;Wednesday&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s&quot;&gt;&apos;Thursday&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;Friday&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;Saturday&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;months&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;January&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;February&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;March&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;April&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;May&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;June&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;July&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;&apos;August&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;September&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;October&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;November&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;December&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;days&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;January&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&apos;February&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&apos;March&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&apos;April&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&apos;May&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&apos;June&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&apos;July&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&apos;August&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&apos;September&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&apos;October&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&apos;November&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&apos;December&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Algorithm:
+# Weekdays always follow 1-7 pattern
+# Months always follow 1-12, only number of days varies, and only in Feb
+&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;leap_year&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;Return whether provided year is a leap year&quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;400&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#January 1st, 1901 was a Tuesday
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;first_sundays&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1901&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2001&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;#print(f&quot;{year}: {leap_year(year)}&quot;)
+&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;#days_in_year = 0
+&lt;/span&gt;        
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;month&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;months&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;month&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;February&apos;&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;leap_year&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;upper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;upper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;days&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;month&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+                
+            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;day&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;upper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;#print(f&quot;{month} {day} {year}: {weekday[w]}&quot;)
+&lt;/span&gt;                &lt;span class=&quot;c1&quot;&gt;#days_in_year += 1
+&lt;/span&gt;                    
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;day&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;weekday&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;Sunday&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;first_sundays&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+
+                &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first_sundays&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;details&gt; 
+&lt;summary&gt;Click to reveal output&lt;/summary&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-py&quot; data-lang=&quot;py&quot;&gt;&lt;span class=&quot;mi&quot;&gt;171&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://projecteuler.net/problem=19&quot;&gt;See problem 19 on projecteuler.net&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ethan Harris</name></author><summary type="html">You are given the following information, but you may prefer to do some research for yourself. 1 Jan 1900 was a Monday. Thirty days has September, April, June and November. All the rest have thirty-one, Saving February alone, Which has twenty-eight, rain or shine. And on leap years, twenty-nine. A leap year occurs on any year evenly divisible by 4, but not on a century unless it is divisible by 400. How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?</summary></entry><entry><title type="html">Problem 67: Maximum Path Sum II</title><link href="http://localhost:4000/euler-67/" rel="alternate" type="text/html" title="Problem 67: Maximum Path Sum II" /><published>2022-03-23T12:00:01-04:00</published><updated>2022-03-23T12:00:01-04:00</updated><id>http://localhost:4000/euler-67</id><content type="html" xml:base="http://localhost:4000/euler-67/">&lt;p&gt;By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.&lt;/p&gt;
 
 &lt;p style=&quot;text-align:center;font-family:monospace&quot;&gt;&lt;span style=&quot;color:red&quot;&gt;&lt;b&gt;3&lt;/b&gt;&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;color:red&quot;&gt;&lt;b&gt;7&lt;/b&gt;&lt;/span&gt; 4&lt;br /&gt;
 2 &lt;span style=&quot;color:red&quot;&gt;&lt;b&gt;4&lt;/b&gt;&lt;/span&gt; 6&lt;br /&gt;
@@ -47,59 +190,7 @@ If d(&lt;em&gt;a&lt;/em&gt;) = &lt;em&gt;b&lt;/em&gt; and d(&lt;em&gt;b&lt;/em&g
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://projecteuler.net/problem=67&quot;&gt;See problem 67 on projecteuler.net&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ethan Harris</name></author><summary type="html">By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23. 37 4 2 4 6 8 5 9 3 That is, 3 + 7 + 4 + 9 = 23. Find the maximum total from top to bottom in triangle.txt, a 15K text file containing a triangle with one-hundred rows.</summary></entry><entry><title type="html">Problem 20: Factorial Digit Sum</title><link href="http://localhost:4000/euler-20/" rel="alternate" type="text/html" title="Problem 20: Factorial Digit Sum" /><published>2022-04-06T09:26:49-04:00</published><updated>2022-04-06T09:26:49-04:00</updated><id>http://localhost:4000/euler-20</id><content type="html" xml:base="http://localhost:4000/euler-20/">&lt;p&gt;&lt;em&gt;n&lt;/em&gt;! means &lt;em&gt;n&lt;/em&gt; × (&lt;em&gt;n&lt;/em&gt; − 1) × … × 3 × 2 × 1&lt;/p&gt;
-
-&lt;p&gt;For example, 10! = 10 × 9 × … × 3 × 2 × 1 = 3628800,
-and the sum of the digits in the number 10! is 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Find the sum of the digits in the number 100!&lt;/strong&gt;
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;CODE&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;details&gt; 
-&lt;summary&gt;Click to reveal output&lt;/summary&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-py&quot; data-lang=&quot;py&quot;&gt;&lt;span class=&quot;n&quot;&gt;OUTPUT&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;/details&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://projecteuler.net/problem=20&quot;&gt;See problem 20 on projecteuler.net&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ethan Harris</name></author><summary type="html">n! means n × (n − 1) × … × 3 × 2 × 1 For example, 10! = 10 × 9 × … × 3 × 2 × 1 = 3628800, and the sum of the digits in the number 10! is 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27. Find the sum of the digits in the number 100!</summary></entry><entry><title type="html">Problem 19: Counting Sundays</title><link href="http://localhost:4000/euler-19/" rel="alternate" type="text/html" title="Problem 19: Counting Sundays" /><published>2022-04-06T09:26:48-04:00</published><updated>2022-04-06T09:26:48-04:00</updated><id>http://localhost:4000/euler-19</id><content type="html" xml:base="http://localhost:4000/euler-19/">&lt;p&gt;You are given the following information, but you may prefer to do some research for yourself.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;1 Jan 1900 was a Monday.&lt;/li&gt;
-  &lt;li&gt;Thirty days has September,&lt;br /&gt;
-April, June and November.&lt;br /&gt;
-All the rest have thirty-one,&lt;br /&gt;
-Saving February alone,&lt;br /&gt;
-Which has twenty-eight, rain or shine.&lt;br /&gt;
-And on leap years, twenty-nine.&lt;/li&gt;
-  &lt;li&gt;A leap year occurs on any year evenly divisible by 4, but not on a century unless it is divisible by 400.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?&lt;/strong&gt;
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;CODE&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;details&gt; 
-&lt;summary&gt;Click to reveal output&lt;/summary&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-py&quot; data-lang=&quot;py&quot;&gt;&lt;span class=&quot;n&quot;&gt;OUTPUT&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;/details&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://projecteuler.net/problem=19&quot;&gt;See problem 19 on projecteuler.net&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ethan Harris</name></author><summary type="html">You are given the following information, but you may prefer to do some research for yourself. 1 Jan 1900 was a Monday. Thirty days has September, April, June and November. All the rest have thirty-one, Saving February alone, Which has twenty-eight, rain or shine. And on leap years, twenty-nine. A leap year occurs on any year evenly divisible by 4, but not on a century unless it is divisible by 400. How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?</summary></entry><entry><title type="html">Problem 18: Maximum Path Sum I</title><link href="http://localhost:4000/euler-18/" rel="alternate" type="text/html" title="Problem 18: Maximum Path Sum I" /><published>2022-04-06T09:26:47-04:00</published><updated>2022-04-06T09:26:47-04:00</updated><id>http://localhost:4000/euler-18</id><content type="html" xml:base="http://localhost:4000/euler-18/">&lt;p&gt;By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://projecteuler.net/problem=67&quot;&gt;See problem 67 on projecteuler.net&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ethan Harris</name></author><summary type="html">By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23. 37 4 2 4 6 8 5 9 3 That is, 3 + 7 + 4 + 9 = 23. Find the maximum total from top to bottom in triangle.txt, a 15K text file containing a triangle with one-hundred rows.</summary></entry><entry><title type="html">Problem 18: Maximum Path Sum I</title><link href="http://localhost:4000/euler-18/" rel="alternate" type="text/html" title="Problem 18: Maximum Path Sum I" /><published>2022-03-23T12:00:00-04:00</published><updated>2022-03-23T12:00:00-04:00</updated><id>http://localhost:4000/euler-18</id><content type="html" xml:base="http://localhost:4000/euler-18/">&lt;p&gt;By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.&lt;/p&gt;
 
 &lt;p style=&quot;text-align:center;font-family:monospace&quot;&gt;&lt;span style=&quot;color:red&quot;&gt;&lt;b&gt;3&lt;/b&gt;&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;color:red&quot;&gt;&lt;b&gt;7&lt;/b&gt;&lt;/span&gt; 4&lt;br /&gt;
 2 &lt;span style=&quot;color:red&quot;&gt;&lt;b&gt;4&lt;/b&gt;&lt;/span&gt; 6&lt;br /&gt;
@@ -142,7 +233,7 @@ And on leap years, twenty-nine.&lt;/li&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://projecteuler.net/problem=18&quot;&gt;See problem 18 on projecteuler.net&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ethan Harris</name></author><summary type="html">By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23. 37 4 2 4 6 8 5 9 3 That is, 3 + 7 + 4 + 9 = 23. Find the maximum total from top to bottom of the triangle below: 75 95 64 17 47 82 18 35 87 10 20 04 82 47 65 19 01 23 75 03 34 88 02 77 73 07 63 67 99 65 04 28 06 16 70 92 41 41 26 56 83 40 80 70 33 41 48 72 33 47 32 37 16 94 29 53 71 44 65 25 43 91 52 97 51 14 70 11 33 28 77 73 17 78 39 68 17 57 91 71 52 38 17 14 91 43 58 50 27 29 48 63 66 04 68 89 53 67 30 73 16 69 87 40 31 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23</summary></entry><entry><title type="html">Problem 17: Number Letter Counts</title><link href="http://localhost:4000/euler-17/" rel="alternate" type="text/html" title="Problem 17: Number Letter Counts" /><published>2022-04-06T09:26:46-04:00</published><updated>2022-04-06T09:26:46-04:00</updated><id>http://localhost:4000/euler-17</id><content type="html" xml:base="http://localhost:4000/euler-17/">&lt;p&gt;If the numbers 1 to 5 are written out in words: one, two, three, four, five, then there are 3 + 3 + 5 + 4 + 4 = 19 letters used in total.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://projecteuler.net/problem=18&quot;&gt;See problem 18 on projecteuler.net&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ethan Harris</name></author><summary type="html">By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23. 37 4 2 4 6 8 5 9 3 That is, 3 + 7 + 4 + 9 = 23. Find the maximum total from top to bottom of the triangle below: 75 95 64 17 47 82 18 35 87 10 20 04 82 47 65 19 01 23 75 03 34 88 02 77 73 07 63 67 99 65 04 28 06 16 70 92 41 41 26 56 83 40 80 70 33 41 48 72 33 47 32 37 16 94 29 53 71 44 65 25 43 91 52 97 51 14 70 11 33 28 77 73 17 78 39 68 17 57 91 71 52 38 17 14 91 43 58 50 27 29 48 63 66 04 68 89 53 67 30 73 16 69 87 40 31 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23</summary></entry><entry><title type="html">Problem 17: Number Letter Counts</title><link href="http://localhost:4000/euler-17/" rel="alternate" type="text/html" title="Problem 17: Number Letter Counts" /><published>2022-03-21T12:00:00-04:00</published><updated>2022-03-21T12:00:00-04:00</updated><id>http://localhost:4000/euler-17</id><content type="html" xml:base="http://localhost:4000/euler-17/">&lt;p&gt;If the numbers 1 to 5 are written out in words: one, two, three, four, five, then there are 3 + 3 + 5 + 4 + 4 = 19 letters used in total.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used?&lt;/strong&gt;
 &lt;!--more--&gt;&lt;/p&gt;
@@ -163,7 +254,7 @@ And on leap years, twenty-nine.&lt;/li&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://projecteuler.net/problem=17&quot;&gt;See problem 17 on projecteuler.net&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ethan Harris</name></author><summary type="html">If the numbers 1 to 5 are written out in words: one, two, three, four, five, then there are 3 + 3 + 5 + 4 + 4 = 19 letters used in total. If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used?</summary></entry><entry><title type="html">Problem 16: Power Digit Sum</title><link href="http://localhost:4000/euler-16/" rel="alternate" type="text/html" title="Problem 16: Power Digit Sum" /><published>2022-04-06T09:26:45-04:00</published><updated>2022-04-06T09:26:45-04:00</updated><id>http://localhost:4000/euler-16</id><content type="html" xml:base="http://localhost:4000/euler-16/">&lt;p&gt;\(2^{15} = 32768\) and the sum of its digits is \(3 + 2 + 7 + 6 + 8 = 26\).&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://projecteuler.net/problem=17&quot;&gt;See problem 17 on projecteuler.net&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ethan Harris</name></author><summary type="html">If the numbers 1 to 5 are written out in words: one, two, three, four, five, then there are 3 + 3 + 5 + 4 + 4 = 19 letters used in total. If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used?</summary></entry><entry><title type="html">Problem 16: Power Digit Sum</title><link href="http://localhost:4000/euler-16/" rel="alternate" type="text/html" title="Problem 16: Power Digit Sum" /><published>2022-03-20T12:00:04-04:00</published><updated>2022-03-20T12:00:04-04:00</updated><id>http://localhost:4000/euler-16</id><content type="html" xml:base="http://localhost:4000/euler-16/">&lt;p&gt;\(2^{15} = 32768\) and the sum of its digits is \(3 + 2 + 7 + 6 + 8 = 26\).&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;What is the sum of the digits of the number \(2^{1000}\)?&lt;/strong&gt;
 &lt;!--more--&gt;&lt;/p&gt;
@@ -182,7 +273,7 @@ And on leap years, twenty-nine.&lt;/li&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://projecteuler.net/problem=16&quot;&gt;See problem 16 on projecteuler.net&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ethan Harris</name></author><summary type="html">\(2^{15} = 32768\) and the sum of its digits is \(3 + 2 + 7 + 6 + 8 = 26\). What is the sum of the digits of the number \(2^{1000}\)?</summary></entry><entry><title type="html">Problem 15: Lattice Paths</title><link href="http://localhost:4000/euler-15/" rel="alternate" type="text/html" title="Problem 15: Lattice Paths" /><published>2022-04-06T09:26:44-04:00</published><updated>2022-04-06T09:26:44-04:00</updated><id>http://localhost:4000/euler-15</id><content type="html" xml:base="http://localhost:4000/euler-15/">&lt;p&gt;Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down, there are exactly 6 routes to the bottom right corner.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://projecteuler.net/problem=16&quot;&gt;See problem 16 on projecteuler.net&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ethan Harris</name></author><summary type="html">\(2^{15} = 32768\) and the sum of its digits is \(3 + 2 + 7 + 6 + 8 = 26\). What is the sum of the digits of the number \(2^{1000}\)?</summary></entry><entry><title type="html">Problem 15: Lattice Paths</title><link href="http://localhost:4000/euler-15/" rel="alternate" type="text/html" title="Problem 15: Lattice Paths" /><published>2022-03-20T12:00:03-04:00</published><updated>2022-03-20T12:00:03-04:00</updated><id>http://localhost:4000/euler-15</id><content type="html" xml:base="http://localhost:4000/euler-15/">&lt;p&gt;Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down, there are exactly 6 routes to the bottom right corner.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/latticepaths.png&quot; alt=&quot;Lattice Paths&quot; style=&quot;display:block; margin-left:auto; margin-right:auto&quot; /&gt;&lt;/p&gt;
 
@@ -274,7 +365,7 @@ $${(20+20)! \over 20!*20!} = 137,846,528,820$$
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://projecteuler.net/problem=15&quot;&gt;See problem 15 on projecteuler.net&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ethan Harris</name></author><summary type="html">Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down, there are exactly 6 routes to the bottom right corner. How many such routes are there through a 20×20 grid?</summary></entry><entry><title type="html">Problem 14: Longest Collatz Sequence</title><link href="http://localhost:4000/euler-14/" rel="alternate" type="text/html" title="Problem 14: Longest Collatz Sequence" /><published>2022-04-06T09:26:43-04:00</published><updated>2022-04-06T09:26:43-04:00</updated><id>http://localhost:4000/euler-14</id><content type="html" xml:base="http://localhost:4000/euler-14/">&lt;p&gt;The following iterative sequence is defined for the set of positive integers:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://projecteuler.net/problem=15&quot;&gt;See problem 15 on projecteuler.net&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ethan Harris</name></author><summary type="html">Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down, there are exactly 6 routes to the bottom right corner. How many such routes are there through a 20×20 grid?</summary></entry><entry><title type="html">Problem 14: Longest Collatz Sequence</title><link href="http://localhost:4000/euler-14/" rel="alternate" type="text/html" title="Problem 14: Longest Collatz Sequence" /><published>2022-03-20T12:00:02-04:00</published><updated>2022-03-20T12:00:02-04:00</updated><id>http://localhost:4000/euler-14</id><content type="html" xml:base="http://localhost:4000/euler-14/">&lt;p&gt;The following iterative sequence is defined for the set of positive integers:&lt;/p&gt;
 
 &lt;p&gt;    n → n/2 (n is even)&lt;br /&gt;
     n → 3n + 1 (n is odd)&lt;/p&gt;
@@ -306,7 +397,7 @@ $${(20+20)! \over 20!*20!} = 137,846,528,820$$
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://projecteuler.net/problem=14&quot;&gt;See problem 14 on projecteuler.net&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ethan Harris</name></author><summary type="html">The following iterative sequence is defined for the set of positive integers:     n → n/2 (n is even)     n → 3n + 1 (n is odd) Using the rule above and starting with 13, we generate the following sequence: 13 → 40 → 20 → 10 → 5 → 16 → 8 → 4 → 2 → 1 It can be seen that this sequence (starting at 13 and finishing at 1) contains 10 terms. Although it has not been proved yet (Collatz Problem), it is thought that all starting numbers finish at 1. Which starting number, under one million, produces the longest chain?</summary></entry><entry><title type="html">Problem 13: Large Sum</title><link href="http://localhost:4000/euler-13/" rel="alternate" type="text/html" title="Problem 13: Large Sum" /><published>2022-04-06T09:26:42-04:00</published><updated>2022-04-06T09:26:42-04:00</updated><id>http://localhost:4000/euler-13</id><content type="html" xml:base="http://localhost:4000/euler-13/">&lt;p&gt;&lt;strong&gt;Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://projecteuler.net/problem=14&quot;&gt;See problem 14 on projecteuler.net&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ethan Harris</name></author><summary type="html">The following iterative sequence is defined for the set of positive integers:     n → n/2 (n is even)     n → 3n + 1 (n is odd) Using the rule above and starting with 13, we generate the following sequence: 13 → 40 → 20 → 10 → 5 → 16 → 8 → 4 → 2 → 1 It can be seen that this sequence (starting at 13 and finishing at 1) contains 10 terms. Although it has not been proved yet (Collatz Problem), it is thought that all starting numbers finish at 1. Which starting number, under one million, produces the longest chain?</summary></entry><entry><title type="html">Problem 13: Large Sum</title><link href="http://localhost:4000/euler-13/" rel="alternate" type="text/html" title="Problem 13: Large Sum" /><published>2022-03-20T12:00:01-04:00</published><updated>2022-03-20T12:00:01-04:00</updated><id>http://localhost:4000/euler-13</id><content type="html" xml:base="http://localhost:4000/euler-13/">&lt;p&gt;&lt;strong&gt;Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;details&gt; 
 &lt;summary&gt;Click to show numbers&lt;/summary&gt;
@@ -420,7 +511,7 @@ $${(20+20)! \over 20!*20!} = 137,846,528,820$$
 &lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;raw&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# i just put numbers directly into file as a string
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;raw&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
 
-&lt;span class=&quot;c1&quot;&gt;# this just works i guess
+&lt;span class=&quot;c1&quot;&gt;# this just works
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ans&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;Sum:&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ans&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;

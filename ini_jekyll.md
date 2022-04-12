@@ -3,11 +3,6 @@ layout: default
 title: Jekyll
 permalink: /jekyll/
 ---
-To see all the websites I've made with Jekyll using Github Pages, look at your screen
-right now or visit Athen-H.github.io at your discretion. Thank you.
+Shown below are all the websites I've published through GitHub Pages using Jekyll:
 
-
-
-
-
-*The rest of this page intentionally left blank*
+![Website](/assets/recursion1.png)
