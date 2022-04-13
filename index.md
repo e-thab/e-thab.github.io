@@ -32,7 +32,7 @@ I'm a computer science major at UNCW with a pretty good grasp on the fundamental
 <br>
 
 {: style="text-align:center"}
-### Or dive into some good old fashioned math:
+### Or dive into some good old-fashioned math:
 
 {: style="text-align:center"}
 # ![euler](/assets/pe.ico){:style="width: 50px;"} **[Project Euler](/euler)**
