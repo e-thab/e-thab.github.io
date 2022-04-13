@@ -94,4 +94,6 @@ what fits best on a sheet. Entering a quantity of '16' imports 4 files. Not supe
 
 ***
 
+*All source code can be found at [Athen-H/VBA](https://github.com/Athen-H/VBA)*
+
 Not mentioned by name, but a true hero in all programs above: extensive, grueling, *boring* exception handling.
