@@ -4,11 +4,13 @@ title: VBA
 permalink: /vba/
 ---
 
+{: style="text-align:center"}
 # ![vba](/assets/vba.svg){:style="width: 75px;"} **VBA GUIs for Use in CorelDRAW**
 
 ***
 
-## Export & Publish:
+{: style="text-align:center"}
+## **Export & Publish**
 Automatically creates JPEG, PNG, and PDF files from any number of documents.
 
 Normally, you need to go document by document and export images or publish PDFs,
@@ -24,7 +26,8 @@ sometimes even page by page if you want multiple exports from a document. This a
 
 ***
 
-## Garment Simulation:
+{: style="text-align:center"}
+## **Garment Simulation**
 Automatically places artwork on garment photos of all sizes, styles, and colors
 to simulate printed product.
 
@@ -37,8 +40,9 @@ to simulate printed product.
 
 ***
 
-## Color Replace:
-Recursively searches through document to replace desired color.
+{: style="text-align:center"}
+## **Color Replace**
+Recursively searches through document to replace instances of desired color.
 ![Color Replace](/assets/color.png)
 
 - Searches through any number of nested object groups (represented here by dashed lines).
@@ -49,7 +53,8 @@ or by selecting with standard color-picker interface.
 
 ***
 
-## Set Size:
+{: style="text-align:center"}
+## **Set Size**
 Set any number of selected objects to the largest size that will fit
 within specified dimensions.
 
@@ -62,12 +67,31 @@ within specified dimensions.
 
 ***
 
-## Auto Import:
+{: style="text-align:center"}
+## **Auto Import**
 
+Not VBA, but AutoIt, which is another BASIC-like so it's in a similar ballpark.
 Made to automate input for Roland ErgoSoft RIP software.
 
 ![Auto Import](/assets/autoimport.png){:style="display:block; margin-left:auto; margin-right:auto"}
 
-More stuff
+PDFs are placed into the RIP software as needed to print on sublimation paper or vinyl.
+Since they go from the printer to the CNC machine to be cut out, they need registration marks for the CNC to recognize.
+
+Normally, the process of placing PDFs into the RIP software is very slow and requires tedious file browsing and repitition.
+This program automates the majority of that.
+
+All that's needed is to select the product name, enter the SKU, and go. A string is procedurally built to determine the file path and input
+is sent to window controls in the RIP software to automatically import the file.
+
+With logic for quantity! For example: The PDF for one of the products is naturally 4-up since we do packs in multiples of 4 and that's
+what fits best on a sheet. Entering a quantity of '16' imports 4 files. Not super complex but pretty nifty.
+
+- Hotkeys for quick and easy input.
+- Quantity option for importing multiple files.
+- Quick registration file detection and import.
+- 'Control Send' instantly sends string to window control, much faster than sending keystrokes.
 
 ***
+
+Not mentioned by name, but a true hero in all programs above: extensive, grueling, *boring* exception handling.

@@ -4,15 +4,17 @@ title: Python
 permalink: /python/
 ---
 
+{: style="text-align:center"}
 # ![py](/assets/py.svg){:style="width: 50px;"} **Python Projects**
 
 ***
 
-## Turdle:
+{: style="text-align:center"}
+## **Turdle**
 A Wordle clone made in Python using tkinter/ttk. Not nearly as clever as some of the others.
 
-Just standard Wordle except you can play as much as you want and it can show you your green guesses
-in one places which is sort of useful. *[Turdle on GitHub](https://github.com/Athen-H/Turdle)*
+Just a standard Wordle except you can play as much as you want and it can show you your green guesses
+in one place, which is sort of useful. *[Turdle on GitHub](https://github.com/Athen-H/Turdle)*
 
 ![Turdle](/assets/turdle1.png)
 
@@ -23,7 +25,7 @@ Red letters indicate word not found in dictionary as a brief animation:
 ![Nope](/assets/nuhuh.gif){:style="display:block; margin-left:auto; margin-right:auto"}
 
 Or a bad final guess:
-![](/assets/turdle2.png)
+![Bad](/assets/turdle2.png)
 
 Game includes logic that allows strategic guessing for maximal information, the same way Wordle does.
 
@@ -33,11 +35,11 @@ R in the word.
 
 In the second guess, PAPAL, the second A is also gray, indicating the same thing for A. (The word was 'rainy')
 
-![Pic](/assets/papal.png){:style="display:block; margin-left:auto; margin-right:auto"}
+![PAPAL](/assets/papal.png){:style="display:block; margin-left:auto; margin-right:auto"}
 
 In the next guess, FLUFF, F appears in every color. (Except red)
 
-![Pic](/assets/fluff.png){:style="display:block; margin-left:auto; margin-right:auto"}
+![FLUFF](/assets/fluff.png){:style="display:block; margin-left:auto; margin-right:auto"}
 
 This tells us that F is in the word exactly twice and gives precise information at every position in our guess.
 The triple-letter guess is risky, but can entirely inform all possibilities for a letter in one guess, even for a double letter word.
