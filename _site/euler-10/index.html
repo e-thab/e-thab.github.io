@@ -57,13 +57,22 @@
 
 <hr />
 
-<p><em>Not sure where I put the code for this one. Working on it</em></p>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># making a list of true/false prime indices is much faster than
+# individually checking primality for every number
+</span><span class="n">primes</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">]</span><span class="o">*</span><span class="mi">2000000</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">primes</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">primes</span><span class="p">),</span> <span class="n">i</span><span class="p">):</span>
+        <span class="n">primes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="n">primes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">primes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">primes</span><span class="p">))</span> <span class="k">if</span> <span class="n">primes</span><span class="p">[</span><span class="n">i</span><span class="p">]]))</span>
+</code></pre></div></div>
 
 <details> 
 <summary>Click to reveal output</summary>
-
-<figure class="highlight"><pre><code class="language-py" data-lang="py"><span class="p">...</span><span class="n">still</span> <span class="n">working</span> <span class="n">on</span> <span class="n">it</span></code></pre></figure>
-
+<pre><code>142913828922
+</code></pre>
 </details>
 
 <hr />

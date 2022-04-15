@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Problem 23: Non-abundant Sums | My Incredible Website</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Problem 23: Non-abundant Sums" />
+<meta name="author" content="Ethan Harris" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A perfect number is a number for which the sum of its proper divisors is exactly equal to the number. For example, the sum of the proper divisors of 28 would be 1 + 2 + 4 + 7 + 14 = 28, which means that 28 is a perfect number. A number n is called deficient if the sum of its proper divisors is less than n and it is called abundant if this sum exceeds n. As 12 is the smallest abundant number, 1 + 2 + 3 + 4 + 6 = 16, the smallest number that can be written as the sum of two abundant numbers is 24. By mathematical analysis, it can be shown that all integers greater than 28123 can be written as the sum of two abundant numbers. However, this upper limit cannot be reduced any further by analysis even though it is known that the greatest number that cannot be expressed as the sum of two abundant numbers is less than this limit. Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers." />
+<meta property="og:description" content="A perfect number is a number for which the sum of its proper divisors is exactly equal to the number. For example, the sum of the proper divisors of 28 would be 1 + 2 + 4 + 7 + 14 = 28, which means that 28 is a perfect number. A number n is called deficient if the sum of its proper divisors is less than n and it is called abundant if this sum exceeds n. As 12 is the smallest abundant number, 1 + 2 + 3 + 4 + 6 = 16, the smallest number that can be written as the sum of two abundant numbers is 24. By mathematical analysis, it can be shown that all integers greater than 28123 can be written as the sum of two abundant numbers. However, this upper limit cannot be reduced any further by analysis even though it is known that the greatest number that cannot be expressed as the sum of two abundant numbers is less than this limit. Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers." />
+<link rel="canonical" href="http://localhost:4000/euler-23/" />
+<meta property="og:url" content="http://localhost:4000/euler-23/" />
+<meta property="og:site_name" content="My Incredible Website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-04-14T08:00:00-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Problem 23: Non-abundant Sums" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ethan Harris"},"dateModified":"2022-04-14T08:00:00-04:00","datePublished":"2022-04-14T08:00:00-04:00","description":"A perfect number is a number for which the sum of its proper divisors is exactly equal to the number. For example, the sum of the proper divisors of 28 would be 1 + 2 + 4 + 7 + 14 = 28, which means that 28 is a perfect number. A number n is called deficient if the sum of its proper divisors is less than n and it is called abundant if this sum exceeds n. As 12 is the smallest abundant number, 1 + 2 + 3 + 4 + 6 = 16, the smallest number that can be written as the sum of two abundant numbers is 24. By mathematical analysis, it can be shown that all integers greater than 28123 can be written as the sum of two abundant numbers. However, this upper limit cannot be reduced any further by analysis even though it is known that the greatest number that cannot be expressed as the sum of two abundant numbers is less than this limit. Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.","headline":"Problem 23: Non-abundant Sums","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/euler-23/"},"url":"http://localhost:4000/euler-23/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="My Incredible Website" /><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">My Incredible Website</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/">Home</a><a class="page-link" href="/vba/">VBA</a><a class="page-link" href="/unity/">Unity</a><a class="page-link" href="/python/">Python</a><a class="page-link" href="/euler/">Project Euler</a><a class="page-link" href="/jekyll/">Jekyll</a><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Problem 23: Non-abundant Sums</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2022-04-14T08:00:00-04:00" itemprop="datePublished">Apr 14, 2022
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>A perfect number is a number for which the sum of its proper divisors is exactly equal to the number. For example, the sum of the proper divisors of 28 would be 1 + 2 + 4 + 7 + 14 = 28, which means that 28 is a perfect number.</p>
+
+<p>A number n is called deficient if the sum of its proper divisors is less than n and it is called abundant if this sum exceeds n.</p>
+
+<p>As 12 is the smallest abundant number, 1 + 2 + 3 + 4 + 6 = 16, the smallest number that can be written as the sum of two abundant numbers is 24. By mathematical analysis, it can be shown that all integers greater than 28123 can be written as the sum of two abundant numbers. However, this upper limit cannot be reduced any further by analysis even though it is known that the greatest number that cannot be expressed as the sum of two abundant numbers is less than this limit.</p>
+
+<p><strong>Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.</strong>
+<!--more--></p>
+
+<hr />
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">divisors</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="s">"""Returns proper divisors of n"""</span>
+    <span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">lst</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">lst</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="o">//</span><span class="n">i</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">lst</span><span class="p">))</span>
+ 
+<span class="c1"># creating a list of distances between abundant numbers. this will be used to find sums.
+</span><span class="n">distances</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">last</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># numbers past 28123-12 should never be able to add to a number below 28123
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28123</span><span class="o">-</span><span class="mi">12</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">sum</span><span class="p">(</span><span class="n">divisors</span><span class="p">(</span><span class="n">i</span><span class="p">)):</span>
+        <span class="n">distances</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">last</span><span class="p">)</span>
+        <span class="n">last</span> <span class="o">=</span> <span class="n">i</span>
+
+<span class="c1"># remove 12 from distances, it isn't actually useful going forward
+</span><span class="k">del</span> <span class="n">distances</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># to find list of sums of two abundant nums, look through distances by index i
+#
+# to list of sums, append:
+#   A. distance at i added to each value in the list of sums APPENDED in step i-1
+#   B. distance at i added to last value added in substep A
+#
+# basis list of sums is [24]
+#
+# this gives a sequence like: (where bracketed items are what was appended in previous step)
+#
+# 0. [24]
+# 1. 24, [30, 36]
+# 2. 24, 30, 36, [32, 38, 40]
+# 3. 24, 30, 36, 32, 38, 40, [36, 42, 44, 48]
+# 4. 24, 30, 36, 32, 38, 40, 36, 42, 44, 48, [42, 48, 50, 54, 60]
+#
+# in step 0, distances[0] = 6 and basis sums previously appended = [24]
+# so to create sums list for next step (1), append:
+#   A. 24 + 6 = 30
+#   B. 30 + 6 = 36
+#
+# in step 1, distances[1] = 2, sums previously appended = [30, 36]
+# append:
+#   30 + 2 = 32
+#   36 + 2 = 38
+#   38 + 2 = 40
+</span>
+<span class="n">sums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">24</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">distances</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">sums</span><span class="p">[</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="n">sums</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">distances</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span>
+
+    <span class="n">sums</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">distances</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">sums</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># sort, remove duplicates
+</span><span class="n">st</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">sums</span><span class="p">)))</span>
+
+<span class="c1"># tally all numbers in range that are not abundant sums to get the answer
+</span><span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28124</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">st</span><span class="p">:</span>
+        <span class="n">t</span> <span class="o">+=</span> <span class="n">i</span>
+
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Sum of all non-abundant sums: </span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+
+<span class="c1"># extra:
+# unlike the analysis described in the prompt, using this method we are able to
+# find the greatest number that cannot be expressed as the sum of two abundant numbers.
+# (assuming that all integers greater than 28123 can indeed be written as sums like the question states.)
+</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">st</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="mi">28124</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">st</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">st</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Greatest number with no abundant sum: </span><span class="si">{</span><span class="n">st</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+        <span class="k">break</span>
+
+<span class="c1"># write to file to analyze output, entirely optional but interesting
+</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'sums.txt'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">sums</span><span class="p">))):</span>
+        <span class="n">f</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<details> 
+<summary>Click to reveal output</summary>
+<pre><code>Sum of all non-abundant sums: 4179871
+Greatest number with no abundant sum: 20161
+</code></pre>
+</details>
+
+<hr />
+
+<p><em><a href="https://projecteuler.net/problem=23">See problem 23 on projecteuler.net</a></em></p>
+
+  </div><a class="u-url" href="/euler-23/" hidden></a>
+  
+  <div class="PageNavigation">
+    
+      <a class="prev" href="/euler-22/">&laquo; Problem 22: Names Scores</a>
+    
+    
+  </div>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">My Incredible Website</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Ethan Harris</li><li><a class="u-email" href="mailto:noah.ethan.harris@gmail.com">noah.ethan.harris@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/Athen-H"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">Athen-H</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Thank you for visiting. Please remember to like, comment, and subscribe to my website.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
