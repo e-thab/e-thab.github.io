@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Problem 24: Lexicographic Permutations | My Incredible Website</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Problem 24: Lexicographic Permutations" />
+<meta name="author" content="Ethan Harris" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A permutation is an ordered arrangement of objects. For example, 3124 is one possible permutation of the digits 1, 2, 3 and 4. If all of the permutations are listed numerically or alphabetically, we call it lexicographic order. The lexicographic permutations of 0, 1 and 2 are: 012 021 102 120 201 210 What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?" />
+<meta property="og:description" content="A permutation is an ordered arrangement of objects. For example, 3124 is one possible permutation of the digits 1, 2, 3 and 4. If all of the permutations are listed numerically or alphabetically, we call it lexicographic order. The lexicographic permutations of 0, 1 and 2 are: 012 021 102 120 201 210 What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?" />
+<link rel="canonical" href="http://localhost:4000/euler-24/" />
+<meta property="og:url" content="http://localhost:4000/euler-24/" />
+<meta property="og:site_name" content="My Incredible Website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-04-15T08:00:00-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Problem 24: Lexicographic Permutations" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ethan Harris"},"dateModified":"2022-04-15T08:00:00-04:00","datePublished":"2022-04-15T08:00:00-04:00","description":"A permutation is an ordered arrangement of objects. For example, 3124 is one possible permutation of the digits 1, 2, 3 and 4. If all of the permutations are listed numerically or alphabetically, we call it lexicographic order. The lexicographic permutations of 0, 1 and 2 are: 012 021 102 120 201 210 What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?","headline":"Problem 24: Lexicographic Permutations","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/euler-24/"},"url":"http://localhost:4000/euler-24/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="My Incredible Website" /><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">My Incredible Website</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/">Home</a><a class="page-link" href="/vba/">VBA</a><a class="page-link" href="/unity/">Unity</a><a class="page-link" href="/python/">Python</a><a class="page-link" href="/euler/">Project Euler</a><a class="page-link" href="/jekyll/">Jekyll</a><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Problem 24: Lexicographic Permutations</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2022-04-15T08:00:00-04:00" itemprop="datePublished">Apr 15, 2022
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>A permutation is an ordered arrangement of objects. For example, 3124 is one possible permutation of the digits 1, 2, 3 and 4. If all of the permutations are listed numerically or alphabetically, we call it lexicographic order. The lexicographic permutations of 0, 1 and 2 are:</p>
+
+<p style="text-align:center">012   021   102   120   201   210</p>
+
+<p><strong>What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?</strong>
+<!--more--></p>
+
+<hr />
+
+<p>Another answer we can get by hand with math! How neat. Let’s start by just looking at our very first permutation:</p>
+
+<p>0123456789</p>
+
+<p>We know that there are 10! (3,628,800) permutations for this string. 10! is the same as 10 * 9!, which is useful because permutations listed lexicographically change the highest value place last, where n is the number of characters in a string, there are (n-1)! permutations that begin with the same character.</p>
+
+<p>Looking at the example in the question, we can see:</p>
+
+<ol>
+  <li><strong>0</strong>12</li>
+  <li><strong>0</strong>21</li>
+  <li><strong>1</strong>02</li>
+  <li><strong>1</strong>20</li>
+  <li><strong>2</strong>01</li>
+  <li><strong>2</strong>10</li>
+</ol>
+
+<p>There are 3! total permutations, and \((3-1)! = 2\) permutations that begin with each character. This also means that any n permutation at some point in the list \((3-1)!*n\) is the last possible sequence that begins with the \((n-1)\)th-value character in the string. In other words, it’s just an ordered version of the string that descends after the first character.</p>
+
+<p>To get the very next sequence, the one that begins with the nth-value character and then ascends, we just add 1. This is only because our list begins at 1, as the question assumes. It’s actually easier to start lists at 0 for this, because then you don’t need to worry about adding 1. However, you must then be careful to look for the 999,999th permutation instead of the 1,000,000th. So let’s do that from now on.</p>
+
+<p>Using what we know, we can test some values to find the first character. Our number of characters is 10, so we’re looking at \((10-1)!\)</p>
+
+<p>Our very first permutation in place 0 is 0123456789.</p>
+
+<p>So place \(9!*1 = 362,880\) would have the farthest left character increased by 1, with the rest ascending: <strong>1023456789</strong></p>
+
+<p>Place \(9!*2 = 725,760\) would be: <strong>2013456789</strong></p>
+
+<p>Since \(9!*2 = 1,088,640\) is over our target of 999,999, we know it can’t start with a number higher than 2.</p>
+
+<p>That gives us our first digit! <strong>2</strong></p>
+
+<p>To do this with the remaining digits, we need to know how many times to multiply the size-1 factorial each time. So let’s go through and add them up, remembering that we can’t exceed the target of 999,999, and see if we can reach our number by the end.</p>
+
+<p><em>The numbers in brackets below represent the cumulative total</em></p>
+
+\[(9!*2) [725,760]\]
+
+\[+ (8!*6) [967,680]\]
+
+\[+ (7!*6) [997,920]\]
+
+\[+ (6!*2) [999,360]\]
+
+\[+ (5!*5) [999,960]\]
+
+\[+ (4!*1) [999,984]\]
+
+\[+ (3!*2) [999,996]\]
+
+\[+ (2!*1) [999,998]\]
+
+\[+ (1!*1) [999,999]\]
+
+<p>And we have our sequence. We can figure each successive digit out by counting up in (n-1)!</p>
+
+<p>\(8! * 6\)</p>
+<ol>
+  <li>013456789</li>
+  <li>103456789</li>
+  <li>301456789</li>
+  <li>401356789</li>
+  <li>501346789</li>
+  <li>601345789</li>
+  <li><strong>7</strong>01345689</li>
+</ol>
+
+<p>Second digit = <strong>7</strong></p>
+
+<p>\(7! * 6\)</p>
+<ol>
+  <li>01345689</li>
+  <li>10345689</li>
+  <li>30145689</li>
+  <li>40135689</li>
+  <li>50134689</li>
+  <li>60134589</li>
+  <li><strong>8</strong>0134569</li>
+</ol>
+
+<p>Third = <strong>8</strong></p>
+
+<p>What becomes clear now is that effectively all we’re doing is counting up to the number of times that string needs to be multiplied, skipping over digits we’ve already used.</p>
+
+<p>Let’s employ an easier strategy for the remaining digits.</p>
+
+<p>Our current known digits are 278, the remaining string we’re working with now is 0134569</p>
+
+<p>We need to multiply 6! by 2. Remembering that the strings are zero-indexed, we count up to 0, 1, 3. The fourth digit of our goal string is <strong>3</strong>.</p>
+
+<p>Our remaining characters are 014569.</p>
+
+<p>\(5! * 5\) means we count 0, 1, 4, 5, 6, <strong>9</strong> for the fifth digit. (Remaining: 01456)</p>
+
+<p>\(4! * 1\) means 0, <strong>1</strong> for the sixth. (Remaining: 0456)</p>
+
+<p>\(3! * 2\) means 0, 4, <strong>5</strong> for the seventh. (Remaining: 046)</p>
+
+<p>\(2! * 1\) means 0, <strong>4</strong> for the eighth. (Remaining: 06)</p>
+
+<p>\(1! * 1\) means 0, <strong>6</strong> for the ninth. (Remaining: 0)</p>
+
+<p>Since we only have one remaining digit, that has to go next. So our final permutation that falls at place 999,999 for 0-index, or 1,000,000 for 1-index, should be <strong>2783915460</strong>.</p>
+
+<p>You could also write out the process of finding the solution as such:</p>
+
+<ul>
+  <li>
+    <p>9! * <strong>2</strong> : 01<u><b>2</b></u>3456789 : [<strong>2</strong>]</p>
+  </li>
+  <li>
+    <p>8! * <strong>6</strong> : 013456<u><b>7</b></u>89 : [2<strong>7</strong>]</p>
+  </li>
+  <li>
+    <p>7! * <strong>6</strong> : 013456<u><b>8</b></u>9 : [27<strong>8</strong>]</p>
+  </li>
+  <li>
+    <p>6! * <strong>2</strong> : 01<u><b>3</b></u>4569 : [278<strong>3</strong>]</p>
+  </li>
+  <li>
+    <p>5! * <strong>5</strong> : 01456<u><b>9</b></u> : [2783<strong>9</strong>]</p>
+  </li>
+  <li>
+    <p>4! * <strong>1</strong> : 0<u><b>1</b></u>456 : [27839<strong>1</strong>]</p>
+  </li>
+  <li>
+    <p>3! * <strong>2</strong> : 04<u><b>5</b></u>6 : [278391<strong>5</strong>]</p>
+  </li>
+  <li>
+    <p>2! * <strong>1</strong> : 0<u><b>4</b></u>6 : [2783915<strong>4</strong>]</p>
+  </li>
+  <li>
+    <p>1! * <strong>1</strong> : 0<u><b>6</b></u> : [27839154<strong>6</strong>]</p>
+  </li>
+  <li>
+    <p>0! * <strong>0</strong> : <u><b>0</b></u> : [278391546<strong>0</strong>]</p>
+  </li>
+</ul>
+
+<p>But since I often don’t fully trust myself with solutions like this, I also wrote some code that finds the answer just to make sure it matches by essentially brute force checking all the permutations up to 1 million.</p>
+
+<p>The algorithm I’m using is explained <a href="https://en.wikipedia.org/wiki/Permutation#Generation_in_lexicographic_order">in this Wikipedia article.</a></p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">seq</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="n">count</span> <span class="o">=</span> <span class="mi">1</span>         <span class="c1">#index begins at 1
+</span><span class="n">limit</span> <span class="o">=</span> <span class="mi">1000000</span>   <span class="c1">#for 0 index, limit = 999999
+</span>
+<span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="n">limit</span> <span class="ow">and</span> <span class="n">seq</span> <span class="o">!=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">seq</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">seq</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+            
+            <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">seq</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">seq</span><span class="p">[</span><span class="n">l</span><span class="p">]:</span>
+                    <span class="n">swap</span>  <span class="o">=</span> <span class="n">seq</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+                    <span class="n">seq</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">seq</span><span class="p">[</span><span class="n">l</span><span class="p">]</span>
+                    <span class="n">seq</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="n">swap</span>
+                    <span class="n">seq</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">seq</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="n">k</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                    <span class="k">break</span>      
+            <span class="k">break</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+<span class="k">print</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+</code></pre></div></div>
+
+<details> 
+<summary>Click to reveal output</summary>
+<pre><code>[2, 7, 8, 3, 9, 1, 5, 4, 6, 0]
+</code></pre>
+</details>
+
+<hr />
+
+<p><em><a href="https://projecteuler.net/problem=24">See problem 24 on projecteuler.net</a></em></p>
+
+  </div><a class="u-url" href="/euler-24/" hidden></a>
+  
+  <div class="PageNavigation">
+    
+      <a class="prev" href="/euler-23/">&laquo; Problem 23: Non-abundant Sums</a>
+    
+    
+  </div>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">My Incredible Website</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Ethan Harris</li><li><a class="u-email" href="mailto:noah.ethan.harris@gmail.com">noah.ethan.harris@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/Athen-H"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">Athen-H</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Thank you for visiting. Please remember to like, comment, and subscribe to my website.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

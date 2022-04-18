@@ -1,4 +1,187 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-14T21:33:21-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">My Incredible Website</title><subtitle>Thank you for visiting. Please remember to like, comment, and subscribe to my website.</subtitle><author><name>Ethan Harris</name></author><entry><title type="html">Problem 23: Non-abundant Sums</title><link href="http://localhost:4000/euler-23/" rel="alternate" type="text/html" title="Problem 23: Non-abundant Sums" /><published>2022-04-14T08:00:00-04:00</published><updated>2022-04-14T08:00:00-04:00</updated><id>http://localhost:4000/euler-23</id><content type="html" xml:base="http://localhost:4000/euler-23/">&lt;p&gt;A perfect number is a number for which the sum of its proper divisors is exactly equal to the number. For example, the sum of the proper divisors of 28 would be 1 + 2 + 4 + 7 + 14 = 28, which means that 28 is a perfect number.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-18T16:27:41-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">My Incredible Website</title><subtitle>Thank you for visiting. Please remember to like, comment, and subscribe to my website.</subtitle><author><name>Ethan Harris</name></author><entry><title type="html">Problem 24: Lexicographic Permutations</title><link href="http://localhost:4000/euler-24/" rel="alternate" type="text/html" title="Problem 24: Lexicographic Permutations" /><published>2022-04-15T08:00:00-04:00</published><updated>2022-04-15T08:00:00-04:00</updated><id>http://localhost:4000/euler-24</id><content type="html" xml:base="http://localhost:4000/euler-24/">&lt;p&gt;A permutation is an ordered arrangement of objects. For example, 3124 is one possible permutation of the digits 1, 2, 3 and 4. If all of the permutations are listed numerically or alphabetically, we call it lexicographic order. The lexicographic permutations of 0, 1 and 2 are:&lt;/p&gt;
+
+&lt;p style=&quot;text-align:center&quot;&gt;012   021   102   120   201   210&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?&lt;/strong&gt;
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Another answer we can get by hand with math! How neat. Let’s start by just looking at our very first permutation:&lt;/p&gt;
+
+&lt;p&gt;0123456789&lt;/p&gt;
+
+&lt;p&gt;We know that there are 10! (3,628,800) permutations for this string. 10! is the same as 10 * 9!, which is useful because permutations listed lexicographically change the highest value place last, where n is the number of characters in a string, there are (n-1)! permutations that begin with the same character.&lt;/p&gt;
+
+&lt;p&gt;Looking at the example in the question, we can see:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;0&lt;/strong&gt;12&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;0&lt;/strong&gt;21&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;1&lt;/strong&gt;02&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;1&lt;/strong&gt;20&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;2&lt;/strong&gt;01&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;2&lt;/strong&gt;10&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;There are 3! total permutations, and \((3-1)! = 2\) permutations that begin with each character. This also means that any n permutation at some point in the list \((3-1)!*n\) is the last possible sequence that begins with the \((n-1)\)th-value character in the string. In other words, it’s just an ordered version of the string that descends after the first character.&lt;/p&gt;
+
+&lt;p&gt;To get the very next sequence, the one that begins with the nth-value character and then ascends, we just add 1. This is only because our list begins at 1, as the question assumes. It’s actually easier to start lists at 0 for this, because then you don’t need to worry about adding 1. However, you must then be careful to look for the 999,999th permutation instead of the 1,000,000th. So let’s do that from now on.&lt;/p&gt;
+
+&lt;p&gt;Using what we know, we can test some values to find the first character. Our number of characters is 10, so we’re looking at \((10-1)!\)&lt;/p&gt;
+
+&lt;p&gt;Our very first permutation in place 0 is 0123456789.&lt;/p&gt;
+
+&lt;p&gt;So place \(9!*1 = 362,880\) would have the farthest left character increased by 1, with the rest ascending: &lt;strong&gt;1023456789&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Place \(9!*2 = 725,760\) would be: &lt;strong&gt;2013456789&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Since \(9!*2 = 1,088,640\) is over our target of 999,999, we know it can’t start with a number higher than 2.&lt;/p&gt;
+
+&lt;p&gt;That gives us our first digit! &lt;strong&gt;2&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;To do this with the remaining digits, we need to know how many times to multiply the size-1 factorial each time. So let’s go through and add them up, remembering that we can’t exceed the target of 999,999, and see if we can reach our number by the end.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;The numbers in brackets below represent the cumulative total&lt;/em&gt;&lt;/p&gt;
+
+\[(9!*2) [725,760]\]
+
+\[+ (8!*6) [967,680]\]
+
+\[+ (7!*6) [997,920]\]
+
+\[+ (6!*2) [999,360]\]
+
+\[+ (5!*5) [999,960]\]
+
+\[+ (4!*1) [999,984]\]
+
+\[+ (3!*2) [999,996]\]
+
+\[+ (2!*1) [999,998]\]
+
+\[+ (1!*1) [999,999]\]
+
+&lt;p&gt;And we have our sequence. We can figure each successive digit out by counting up in (n-1)!&lt;/p&gt;
+
+&lt;p&gt;\(8! * 6\)&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;013456789&lt;/li&gt;
+  &lt;li&gt;103456789&lt;/li&gt;
+  &lt;li&gt;301456789&lt;/li&gt;
+  &lt;li&gt;401356789&lt;/li&gt;
+  &lt;li&gt;501346789&lt;/li&gt;
+  &lt;li&gt;601345789&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;7&lt;/strong&gt;01345689&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Second digit = &lt;strong&gt;7&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;\(7! * 6\)&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;01345689&lt;/li&gt;
+  &lt;li&gt;10345689&lt;/li&gt;
+  &lt;li&gt;30145689&lt;/li&gt;
+  &lt;li&gt;40135689&lt;/li&gt;
+  &lt;li&gt;50134689&lt;/li&gt;
+  &lt;li&gt;60134589&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;8&lt;/strong&gt;0134569&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Third = &lt;strong&gt;8&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;What becomes clear now is that effectively all we’re doing is counting up to the number of times that string needs to be multiplied, skipping over digits we’ve already used.&lt;/p&gt;
+
+&lt;p&gt;Let’s employ an easier strategy for the remaining digits.&lt;/p&gt;
+
+&lt;p&gt;Our current known digits are 278, the remaining string we’re working with now is 0134569&lt;/p&gt;
+
+&lt;p&gt;We need to multiply 6! by 2. Remembering that the strings are zero-indexed, we count up to 0, 1, 3. The fourth digit of our goal string is &lt;strong&gt;3&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Our remaining characters are 014569.&lt;/p&gt;
+
+&lt;p&gt;\(5! * 5\) means we count 0, 1, 4, 5, 6, &lt;strong&gt;9&lt;/strong&gt; for the fifth digit. (Remaining: 01456)&lt;/p&gt;
+
+&lt;p&gt;\(4! * 1\) means 0, &lt;strong&gt;1&lt;/strong&gt; for the sixth. (Remaining: 0456)&lt;/p&gt;
+
+&lt;p&gt;\(3! * 2\) means 0, 4, &lt;strong&gt;5&lt;/strong&gt; for the seventh. (Remaining: 046)&lt;/p&gt;
+
+&lt;p&gt;\(2! * 1\) means 0, &lt;strong&gt;4&lt;/strong&gt; for the eighth. (Remaining: 06)&lt;/p&gt;
+
+&lt;p&gt;\(1! * 1\) means 0, &lt;strong&gt;6&lt;/strong&gt; for the ninth. (Remaining: 0)&lt;/p&gt;
+
+&lt;p&gt;Since we only have one remaining digit, that has to go next. So our final permutation that falls at place 999,999 for 0-index, or 1,000,000 for 1-index, should be &lt;strong&gt;2783915460&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;You could also write out the process of finding the solution as such:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;9! * &lt;strong&gt;2&lt;/strong&gt; : 01&lt;u&gt;&lt;b&gt;2&lt;/b&gt;&lt;/u&gt;3456789 : [&lt;strong&gt;2&lt;/strong&gt;]&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;8! * &lt;strong&gt;6&lt;/strong&gt; : 013456&lt;u&gt;&lt;b&gt;7&lt;/b&gt;&lt;/u&gt;89 : [2&lt;strong&gt;7&lt;/strong&gt;]&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;7! * &lt;strong&gt;6&lt;/strong&gt; : 013456&lt;u&gt;&lt;b&gt;8&lt;/b&gt;&lt;/u&gt;9 : [27&lt;strong&gt;8&lt;/strong&gt;]&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;6! * &lt;strong&gt;2&lt;/strong&gt; : 01&lt;u&gt;&lt;b&gt;3&lt;/b&gt;&lt;/u&gt;4569 : [278&lt;strong&gt;3&lt;/strong&gt;]&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;5! * &lt;strong&gt;5&lt;/strong&gt; : 01456&lt;u&gt;&lt;b&gt;9&lt;/b&gt;&lt;/u&gt; : [2783&lt;strong&gt;9&lt;/strong&gt;]&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;4! * &lt;strong&gt;1&lt;/strong&gt; : 0&lt;u&gt;&lt;b&gt;1&lt;/b&gt;&lt;/u&gt;456 : [27839&lt;strong&gt;1&lt;/strong&gt;]&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;3! * &lt;strong&gt;2&lt;/strong&gt; : 04&lt;u&gt;&lt;b&gt;5&lt;/b&gt;&lt;/u&gt;6 : [278391&lt;strong&gt;5&lt;/strong&gt;]&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;2! * &lt;strong&gt;1&lt;/strong&gt; : 0&lt;u&gt;&lt;b&gt;4&lt;/b&gt;&lt;/u&gt;6 : [2783915&lt;strong&gt;4&lt;/strong&gt;]&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;1! * &lt;strong&gt;1&lt;/strong&gt; : 0&lt;u&gt;&lt;b&gt;6&lt;/b&gt;&lt;/u&gt; : [27839154&lt;strong&gt;6&lt;/strong&gt;]&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;0! * &lt;strong&gt;0&lt;/strong&gt; : &lt;u&gt;&lt;b&gt;0&lt;/b&gt;&lt;/u&gt; : [278391546&lt;strong&gt;0&lt;/strong&gt;]&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;But since I often don’t fully trust myself with solutions like this, I also wrote some code that finds the answer just to make sure it matches by essentially brute force checking all the permutations up to 1 million.&lt;/p&gt;
+
+&lt;p&gt;The algorithm I’m using is explained &lt;a href=&quot;https://en.wikipedia.org/wiki/Permutation#Generation_in_lexicographic_order&quot;&gt;in this Wikipedia article.&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;seq&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;         &lt;span class=&quot;c1&quot;&gt;#index begins at 1
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;limit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000000&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;#for 0 index, limit = 999999
+&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;limit&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seq&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sorted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reverse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+            
+            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;l&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;swap&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;swap&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+                    &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;      
+            &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;details&gt; 
+&lt;summary&gt;Click to reveal output&lt;/summary&gt;
+&lt;pre&gt;&lt;code&gt;[2, 7, 8, 3, 9, 1, 5, 4, 6, 0]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://projecteuler.net/problem=24&quot;&gt;See problem 24 on projecteuler.net&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ethan Harris</name></author><summary type="html">A permutation is an ordered arrangement of objects. For example, 3124 is one possible permutation of the digits 1, 2, 3 and 4. If all of the permutations are listed numerically or alphabetically, we call it lexicographic order. The lexicographic permutations of 0, 1 and 2 are: 012 021 102 120 201 210 What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?</summary></entry><entry><title type="html">Problem 23: Non-abundant Sums</title><link href="http://localhost:4000/euler-23/" rel="alternate" type="text/html" title="Problem 23: Non-abundant Sums" /><published>2022-04-14T08:00:00-04:00</published><updated>2022-04-14T08:00:00-04:00</updated><id>http://localhost:4000/euler-23</id><content type="html" xml:base="http://localhost:4000/euler-23/">&lt;p&gt;A perfect number is a number for which the sum of its proper divisors is exactly equal to the number. For example, the sum of the proper divisors of 28 would be 1 + 2 + 4 + 7 + 14 = 28, which means that 28 is a perfect number.&lt;/p&gt;
 
 &lt;p&gt;A number n is called deficient if the sum of its proper divisors is less than n and it is called abundant if this sum exceeds n.&lt;/p&gt;
 
@@ -463,96 +646,4 @@ And on leap years, twenty-nine.&lt;/li&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://projecteuler.net/problem=16&quot;&gt;See problem 16 on projecteuler.net&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ethan Harris</name></author><summary type="html">\(2^{15} = 32768\) and the sum of its digits is \(3 + 2 + 7 + 6 + 8 = 26\). What is the sum of the digits of the number \(2^{1000}\)?</summary></entry><entry><title type="html">Problem 15: Lattice Paths</title><link href="http://localhost:4000/euler-15/" rel="alternate" type="text/html" title="Problem 15: Lattice Paths" /><published>2022-03-20T12:00:03-04:00</published><updated>2022-03-20T12:00:03-04:00</updated><id>http://localhost:4000/euler-15</id><content type="html" xml:base="http://localhost:4000/euler-15/">&lt;p&gt;Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down, there are exactly 6 routes to the bottom right corner.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/latticepaths.png&quot; alt=&quot;Lattice Paths&quot; style=&quot;display:block; margin-left:auto; margin-right:auto&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;How many such routes are there through a 20×20 grid?&lt;/strong&gt;
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;&lt;br /&gt;
-This is a special one, because we don’t need to write any code to solve it!&lt;br /&gt;
-&lt;em&gt;(That’s probably true for many of the others but I actually know how to do it for this one)&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;We can utilize properties of combinatorics to find the solution. First, let’s consider a much more
-managable grid to better understand the problem. I’ll use a grid with 2 different dimensions to make things more clear,
-but this works for a rectangular grid of any size or proportion.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/goldstar.png&quot; alt=&quot;2x3 Grid&quot; style=&quot;display:block; margin-left:auto; margin-right:auto&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;In this 2x3 grid, we know that no matter which path we choose, we &lt;em&gt;must&lt;/em&gt; ultimately move right three times
-and down two times to reach the bottom right corner and get that enticing gold star.&lt;/p&gt;
-
-&lt;p&gt;At this point, we can convert our moves into a much simpler format for solving: a string!
-The path is always \(2+3=5\) moves long, so the string is 5 characters long. We can use R for a move right and D for a move down.&lt;/p&gt;
-
-&lt;p style=&quot;text-align:center&quot;&gt;
-&lt;b&gt;&lt;span style=&quot;color:Purple&quot;&gt;RRR&lt;/span&gt;&lt;span style=&quot;color:DarkCyan&quot;&gt;DD&lt;/span&gt;&lt;/b&gt;
-&lt;/p&gt;
-
-&lt;p&gt;If we had our 2 characters, R and D, and we could always choose one or the other to come next, we could describe all the paths we could make with \(2^5=32\).&lt;/p&gt;
-
-&lt;p&gt;But we don’t. If we consider that we essentially have 5 characters, 3 R’s and 2 D’s, once we’ve picked one at any point in the sequence, our pool of remaining characters to choose is reduced by 1.
-For that reason, we need to use factorials to describe how many permutations of characters can exist.&lt;/p&gt;
-
-&lt;p&gt;Even though there are multiple R’s as well as D’s, for now we can consider them all unique elements.&lt;/p&gt;
-
-&lt;p&gt;To get the number of ways you can arrange 5 unique &lt;em&gt;things&lt;/em&gt;, it’s simply \(5!=120\).&lt;br /&gt;
-&lt;em&gt;(5 factorial, e.g. 5*4*3*2*1)&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;However&lt;/strong&gt;, now we have redundancies to account for. \(5!\) alone describes this:&lt;/p&gt;
-
-&lt;p style=&quot;text-align:center&quot;&gt;
-&lt;b&gt;&lt;span style=&quot;color:Crimson&quot;&gt;R1 &lt;/span&gt;&lt;span style=&quot;color:Orange&quot;&gt;R2 &lt;/span&gt;&lt;span style=&quot;color:Gold&quot;&gt;R3 &lt;/span&gt;&lt;span style=&quot;color:DarkSeaGreen&quot;&gt;D4 &lt;/span&gt;&lt;span style=&quot;color:MediumSlateBlue&quot;&gt;D5&lt;/span&gt;&lt;/b&gt;
-&lt;/p&gt;
-
-&lt;p&gt;Meaning we’re counting that permutation as well as ones like this:&lt;/p&gt;
-
-&lt;p style=&quot;text-align:center&quot;&gt;
-&lt;b&gt;&lt;span style=&quot;color:Gold&quot;&gt;R3 &lt;/span&gt;&lt;span style=&quot;color:Crimson&quot;&gt;R1 &lt;/span&gt;&lt;span style=&quot;color:Orange&quot;&gt;R2 &lt;/span&gt;&lt;span style=&quot;color:MediumSlateBlue&quot;&gt;D5 &lt;/span&gt;&lt;span style=&quot;color:DarkSeaGreen&quot;&gt;D4&lt;/span&gt;&lt;/b&gt;
-&lt;/p&gt;
-
-&lt;p&gt;But of course, RRRDD is the same sequence regardless. Not all the characters are actually unique.
-We don’t care ‘which’ R goes in which of the first three spots, or which D in the last two.&lt;/p&gt;
-
-&lt;p&gt;So the number of redundancies we have is equivalent to the number of ways we can permute all the R’s &lt;strong&gt;AND&lt;/strong&gt; all the ways we can permute the D’s. &lt;strong&gt;“And”&lt;/strong&gt; here means we need to multiply,
-because &lt;em&gt;all&lt;/em&gt; the R redundancies exist for &lt;em&gt;all&lt;/em&gt; the D redundancies.&lt;/p&gt;
-
-\[3!*2!\]
-
-&lt;p&gt;So now we have our total number of ways to permute 5 things, and all the redundancies we have in this case.
-Remember that we get 5 by adding the dimensions of the grid, 3x2. The hard work is done, now we get to do the math.&lt;/p&gt;
-
-\[{(3+2)! \over 3!*2!} = {5! \over 3!*2!}\]
-
-&lt;p&gt;And there’s a fun way to divide factorials that makes things a little easier when doing them by hand.
-Just decompose the factorials and cross out like numbers on either side! (Imagine that the overbar is crossing out the numbers)&lt;/p&gt;
-
-\[{5*4*\overline{3*2*1} \over \overline{3*2*1}*2*1} = {5*4 \over 2*1} = {20 \over 2} = 10\]
-
-&lt;p&gt;So there are 10 ways to build a 5-character string with three indentical R’s and 2 identical D’s. That means we have 10 paths that get us from the top left to the bottom right!
-Really, from any corner to its diagonal opposite. To solve this for the 20x20 grid, let’s generalize how we solved the smaller one.&lt;/p&gt;
-
-&lt;p&gt;We took the dimensions of the grid, which we can call \(n\) x \(m\), and took the factorial of their sum to get our total possible permutations.&lt;/p&gt;
-
-\[(n+m)!\]
-
-&lt;p&gt;We calculated our redundancies by finding the permutations of each set of similar moves, the same two numbers as before, and multiplying them.&lt;/p&gt;
-
-\[n!*m!\]
-
-&lt;p&gt;Then we accounted for redundancies by dividing them by our total. Putting it together gives us:&lt;/p&gt;
-
-\[{(n+m)!} \over {n!*m!}\]
-
-&lt;p&gt;Now all we need to do is plug in our numbers to get the solution below. And hey, you know what? If you made it this far, you can keep that gold star.&lt;/p&gt;
-
-&lt;details&gt; 
-&lt;summary&gt;Click to reveal solution&lt;/summary&gt;
-$${(20+20)! \over 20!*20!} = 137,846,528,820$$
-&lt;/details&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://projecteuler.net/problem=15&quot;&gt;See problem 15 on projecteuler.net&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ethan Harris</name></author><summary type="html">Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down, there are exactly 6 routes to the bottom right corner. How many such routes are there through a 20×20 grid?</summary></entry></feed>
+&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://projecteuler.net/problem=16&quot;&gt;See problem 16 on projecteuler.net&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ethan Harris</name></author><summary type="html">\(2^{15} = 32768\) and the sum of its digits is \(3 + 2 + 7 + 6 + 8 = 26\). What is the sum of the digits of the number \(2^{1000}\)?</summary></entry></feed>
