@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Problem 25: 1000-digit Fibonacci Number | My Incredible Website</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Problem 25: 1000-digit Fibonacci Number" />
+<meta name="author" content="Ethan Harris" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Fibonacci sequence is defined by the recurrence relation: Fn = Fn−1 + Fn−2, where F1 = 1 and F2 = 1. Hence the first 12 terms will be: F1 = 1 F2 = 1 F3 = 2 F4 = 3 F5 = 5 F6 = 8 F7 = 13 F8 = 21 F9 = 34 F10 = 55 F11 = 89 F12 = 144 The 12th term, F12, is the first term to contain three digits. What is the index of the first term in the Fibonacci sequence to contain 1000 digits?" />
+<meta property="og:description" content="The Fibonacci sequence is defined by the recurrence relation: Fn = Fn−1 + Fn−2, where F1 = 1 and F2 = 1. Hence the first 12 terms will be: F1 = 1 F2 = 1 F3 = 2 F4 = 3 F5 = 5 F6 = 8 F7 = 13 F8 = 21 F9 = 34 F10 = 55 F11 = 89 F12 = 144 The 12th term, F12, is the first term to contain three digits. What is the index of the first term in the Fibonacci sequence to contain 1000 digits?" />
+<link rel="canonical" href="http://localhost:4000/euler-25/" />
+<meta property="og:url" content="http://localhost:4000/euler-25/" />
+<meta property="og:site_name" content="My Incredible Website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-04-19T08:00:00-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Problem 25: 1000-digit Fibonacci Number" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ethan Harris"},"dateModified":"2022-04-19T08:00:00-04:00","datePublished":"2022-04-19T08:00:00-04:00","description":"The Fibonacci sequence is defined by the recurrence relation: Fn = Fn−1 + Fn−2, where F1 = 1 and F2 = 1. Hence the first 12 terms will be: F1 = 1 F2 = 1 F3 = 2 F4 = 3 F5 = 5 F6 = 8 F7 = 13 F8 = 21 F9 = 34 F10 = 55 F11 = 89 F12 = 144 The 12th term, F12, is the first term to contain three digits. What is the index of the first term in the Fibonacci sequence to contain 1000 digits?","headline":"Problem 25: 1000-digit Fibonacci Number","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/euler-25/"},"url":"http://localhost:4000/euler-25/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="My Incredible Website" /><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">My Incredible Website</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/">Home</a><a class="page-link" href="/vba/">VBA</a><a class="page-link" href="/unity/">Unity</a><a class="page-link" href="/python/">Python</a><a class="page-link" href="/euler/">Project Euler</a><a class="page-link" href="/jekyll/">Jekyll</a><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Problem 25: 1000-digit Fibonacci Number</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2022-04-19T08:00:00-04:00" itemprop="datePublished">Apr 19, 2022
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>The Fibonacci sequence is defined by the recurrence relation:</p>
+
+<p>Fn = Fn−1 + Fn−2, where F1 = 1 and F2 = 1.</p>
+
+<p>Hence the first 12 terms will be:</p>
+
+<blockquote>
+  <p>F1 = 1<br />
+F2 = 1<br />
+F3 = 2<br />
+F4 = 3<br />
+F5 = 5<br />
+F6 = 8<br />
+F7 = 13<br />
+F8 = 21<br />
+F9 = 34<br />
+F10 = 55<br />
+F11 = 89<br />
+F12 = 144</p>
+</blockquote>
+
+<p>The 12th term, F12, is the first term to contain three digits.</p>
+
+<p><strong>What is the index of the first term in the Fibonacci sequence to contain 1000 digits?</strong>
+<!--more--></p>
+
+<hr />
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">digits</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="s">"""Returns the number of digits in n."""</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+
+<span class="c1"># Iterative fibonacci sequence, just swap values downward each iteration
+# Iterate until the digits in the number &gt;= 1000
+</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">digits</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">:</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">n</span><span class="o">+</span><span class="n">m</span>
+    <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">i</span> <span class="o">=</span> <span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+    
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'Number: </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'Index: </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<details> 
+<summary>Click to reveal output</summary>
+<pre><code>Number: 1070066266382758936764980584457396885083683896632151665013235203375314520604694040621889147582489792657804694888177591957484336466672569959512996030461262748092482186144069433051234774442750273781753087579391666192149259186759553966422837148943113074699503439547001985432609723067290192870526447243726117715821825548491120525013201478612965931381792235559657452039506137551467837543229119602129934048260706175397706847068202895486902666185435124521900369480641357447470911707619766945691070098024393439617474103736912503231365532164773697023167755051595173518460579954919410967778373229665796581646513903488154256310184224190259846088000110186255550245493937113651657039447629584714548523425950428582425306083544435428212611008992863795048006894330309773217834864543113205765659868456288616808718693835297350643986297640660000723562917905207051164077614812491885830945940566688339109350944456576357666151619317753792891661581327159616877487983821820492520348473874384736771934512787029218636250627816
+Index: 4782
+</code></pre>
+</details>
+
+<hr />
+
+<p><em><a href="https://projecteuler.net/problem=25">See problem 25 on projecteuler.net</a></em></p>
+
+  </div><a class="u-url" href="/euler-25/" hidden></a>
+  
+  <div class="PageNavigation">
+    
+      <a class="prev" href="/euler-24/">&laquo; Problem 24: Lexicographic Permutations</a>
+    
+    
+  </div>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">My Incredible Website</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Ethan Harris</li><li><a class="u-email" href="mailto:noah.ethan.harris@gmail.com">noah.ethan.harris@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/Athen-H"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">Athen-H</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Thank you for visiting. Please remember to like, comment, and subscribe to my website.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

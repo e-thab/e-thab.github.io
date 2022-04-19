@@ -1,4 +1,56 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-18T16:27:41-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">My Incredible Website</title><subtitle>Thank you for visiting. Please remember to like, comment, and subscribe to my website.</subtitle><author><name>Ethan Harris</name></author><entry><title type="html">Problem 24: Lexicographic Permutations</title><link href="http://localhost:4000/euler-24/" rel="alternate" type="text/html" title="Problem 24: Lexicographic Permutations" /><published>2022-04-15T08:00:00-04:00</published><updated>2022-04-15T08:00:00-04:00</updated><id>http://localhost:4000/euler-24</id><content type="html" xml:base="http://localhost:4000/euler-24/">&lt;p&gt;A permutation is an ordered arrangement of objects. For example, 3124 is one possible permutation of the digits 1, 2, 3 and 4. If all of the permutations are listed numerically or alphabetically, we call it lexicographic order. The lexicographic permutations of 0, 1 and 2 are:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-19T14:27:38-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">My Incredible Website</title><subtitle>Thank you for visiting. Please remember to like, comment, and subscribe to my website.</subtitle><author><name>Ethan Harris</name></author><entry><title type="html">Problem 25: 1000-digit Fibonacci Number</title><link href="http://localhost:4000/euler-25/" rel="alternate" type="text/html" title="Problem 25: 1000-digit Fibonacci Number" /><published>2022-04-19T08:00:00-04:00</published><updated>2022-04-19T08:00:00-04:00</updated><id>http://localhost:4000/euler-25</id><content type="html" xml:base="http://localhost:4000/euler-25/">&lt;p&gt;The Fibonacci sequence is defined by the recurrence relation:&lt;/p&gt;
+
+&lt;p&gt;Fn = Fn−1 + Fn−2, where F1 = 1 and F2 = 1.&lt;/p&gt;
+
+&lt;p&gt;Hence the first 12 terms will be:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;F1 = 1&lt;br /&gt;
+F2 = 1&lt;br /&gt;
+F3 = 2&lt;br /&gt;
+F4 = 3&lt;br /&gt;
+F5 = 5&lt;br /&gt;
+F6 = 8&lt;br /&gt;
+F7 = 13&lt;br /&gt;
+F8 = 21&lt;br /&gt;
+F9 = 34&lt;br /&gt;
+F10 = 55&lt;br /&gt;
+F11 = 89&lt;br /&gt;
+F12 = 144&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The 12th term, F12, is the first term to contain three digits.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What is the index of the first term in the Fibonacci sequence to contain 1000 digits?&lt;/strong&gt;
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;digits&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;Returns the number of digits in n.&quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Iterative fibonacci sequence, just swap values downward each iteration
+# Iterate until the digits in the number &amp;gt;= 1000
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;digits&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;Number: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;Index: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;details&gt; 
+&lt;summary&gt;Click to reveal output&lt;/summary&gt;
+&lt;pre&gt;&lt;code&gt;Number: 1070066266382758936764980584457396885083683896632151665013235203375314520604694040621889147582489792657804694888177591957484336466672569959512996030461262748092482186144069433051234774442750273781753087579391666192149259186759553966422837148943113074699503439547001985432609723067290192870526447243726117715821825548491120525013201478612965931381792235559657452039506137551467837543229119602129934048260706175397706847068202895486902666185435124521900369480641357447470911707619766945691070098024393439617474103736912503231365532164773697023167755051595173518460579954919410967778373229665796581646513903488154256310184224190259846088000110186255550245493937113651657039447629584714548523425950428582425306083544435428212611008992863795048006894330309773217834864543113205765659868456288616808718693835297350643986297640660000723562917905207051164077614812491885830945940566688339109350944456576357666151619317753792891661581327159616877487983821820492520348473874384736771934512787029218636250627816
+Index: 4782
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://projecteuler.net/problem=25&quot;&gt;See problem 25 on projecteuler.net&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ethan Harris</name></author><summary type="html">The Fibonacci sequence is defined by the recurrence relation: Fn = Fn−1 + Fn−2, where F1 = 1 and F2 = 1. Hence the first 12 terms will be: F1 = 1 F2 = 1 F3 = 2 F4 = 3 F5 = 5 F6 = 8 F7 = 13 F8 = 21 F9 = 34 F10 = 55 F11 = 89 F12 = 144 The 12th term, F12, is the first term to contain three digits. What is the index of the first term in the Fibonacci sequence to contain 1000 digits?</summary></entry><entry><title type="html">Problem 24: Lexicographic Permutations</title><link href="http://localhost:4000/euler-24/" rel="alternate" type="text/html" title="Problem 24: Lexicographic Permutations" /><published>2022-04-15T08:00:00-04:00</published><updated>2022-04-15T08:00:00-04:00</updated><id>http://localhost:4000/euler-24</id><content type="html" xml:base="http://localhost:4000/euler-24/">&lt;p&gt;A permutation is an ordered arrangement of objects. For example, 3124 is one possible permutation of the digits 1, 2, 3 and 4. If all of the permutations are listed numerically or alphabetically, we call it lexicographic order. The lexicographic permutations of 0, 1 and 2 are:&lt;/p&gt;
 
 &lt;p style=&quot;text-align:center&quot;&gt;012   021   102   120   201   210&lt;/p&gt;
 
@@ -281,6 +333,7 @@
 &lt;pre&gt;&lt;code&gt;Sum of all non-abundant sums: 4179871
 Greatest number with no abundant sum: 20161
 &lt;/code&gt;&lt;/pre&gt;
+File output: &lt;a href=&quot;/assets/sums.txt&quot;&gt;sums.txt&lt;/a&gt;
 &lt;/details&gt;
 
 &lt;hr /&gt;
@@ -624,26 +677,4 @@ And on leap years, twenty-nine.&lt;/li&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://projecteuler.net/problem=17&quot;&gt;See problem 17 on projecteuler.net&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ethan Harris</name></author><summary type="html">If the numbers 1 to 5 are written out in words: one, two, three, four, five, then there are 3 + 3 + 5 + 4 + 4 = 19 letters used in total. If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used?</summary></entry><entry><title type="html">Problem 16: Power Digit Sum</title><link href="http://localhost:4000/euler-16/" rel="alternate" type="text/html" title="Problem 16: Power Digit Sum" /><published>2022-03-20T12:00:04-04:00</published><updated>2022-03-20T12:00:04-04:00</updated><id>http://localhost:4000/euler-16</id><content type="html" xml:base="http://localhost:4000/euler-16/">&lt;p&gt;\(2^{15} = 32768\) and the sum of its digits is \(3 + 2 + 7 + 6 + 8 = 26\).&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;What is the sum of the digits of the number \(2^{1000}\)?&lt;/strong&gt;
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;digital_sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;Returns the sum of the digits of a positive integer n.&quot;&quot;&quot;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)])&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# this was probably meant to be harder than this
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;digital_sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;details&gt; 
-&lt;summary&gt;Click to reveal output&lt;/summary&gt;
-&lt;pre&gt;&lt;code&gt;1366
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/details&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://projecteuler.net/problem=16&quot;&gt;See problem 16 on projecteuler.net&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ethan Harris</name></author><summary type="html">\(2^{15} = 32768\) and the sum of its digits is \(3 + 2 + 7 + 6 + 8 = 26\). What is the sum of the digits of the number \(2^{1000}\)?</summary></entry></feed>
+&lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://projecteuler.net/problem=17&quot;&gt;See problem 17 on projecteuler.net&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Ethan Harris</name></author><summary type="html">If the numbers 1 to 5 are written out in words: one, two, three, four, five, then there are 3 + 3 + 5 + 4 + 4 = 19 letters used in total. If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used?</summary></entry></feed>
