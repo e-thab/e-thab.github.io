@@ -23,8 +23,8 @@ email: noah.ethan.harris@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Thank you for visiting. Please remember to like, comment, and subscribe to my website.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://Athen-H.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  Athen-H
+url: "https://e-thab.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+github_username:  e-thab
 author: Ethan Harris
 
 # Build settings

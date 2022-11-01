@@ -14,7 +14,7 @@ permalink: /python/
 A Wordle clone made in Python using tkinter/ttk. Not nearly as clever as some of the others.
 
 Just a standard Wordle except you can play as much as you want and it can show you your green guesses
-in one place, which is sort of useful. *[Turdle on GitHub](https://github.com/Athen-H/Turdle)*
+in one place, which is sort of useful. *[Turdle on GitHub](https://github.com/e-thab/Turdle)*
 
 ![Turdle](/assets/turdle1.png)
 
